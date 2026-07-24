@@ -117,6 +117,9 @@ Poor use:
 Recommended specialist briefs:
 
 - Product challenge: "Find unclear product promises, MVP drift, and missing user value."
+- UI change checkpoint: "Before making more UI changes, spin up a UI/UX specialist.
+  Ask them to use a GStack-style visual usability review. They should return findings
+  only; main agent decides and implements."
 - UI/UX challenge: "Review the screen or flow for clutter, unclear controls, missing
   visual proof, and low-friction user action."
 - Feasibility challenge: "Check whether the proposed capability can run in the real
