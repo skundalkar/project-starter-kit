@@ -94,6 +94,45 @@ Expected output:
 - what user expectation changed
 - what should be prototyped visually before implementation continues
 
+## Specialist Or Multi-Agent Review
+
+Use specialist or multi-agent review only when separate viewpoints can run in parallel
+without creating coordination drag.
+
+Good use:
+
+- a visual product needs a focused UI/UX review while implementation continues elsewhere
+- the project has separate product, design, technical feasibility, and QA risks
+- one agent is looping through too many roles and missing obvious issues
+- a feature is expensive to implement and needs a quick challenge before code
+- multiple independent artifacts can be reviewed at the same time
+
+Poor use:
+
+- the question is small enough for the main agent to answer directly
+- the product direction is still too vague to brief a specialist
+- the specialist would need the full conversation history instead of a tight brief
+- coordinating agents would take longer than doing the work
+
+Recommended specialist briefs:
+
+- Product challenge: "Find unclear product promises, MVP drift, and missing user value."
+- UI/UX challenge: "Review the screen or flow for clutter, unclear controls, missing
+  visual proof, and low-friction user action."
+- Feasibility challenge: "Check whether the proposed capability can run in the real
+  runtime path with available credentials, billing, permissions, and APIs."
+- QA challenge: "Identify untested visible UI actions, broken flows, stale data, and
+  misleading success states."
+
+Expected output:
+
+- specialist role used
+- exact artifact, screen, flow, or assumption reviewed
+- top findings
+- what changed because of the findings
+- whether the finding should update `project-brief.md`, `prototype-pass.md`,
+  `build-brief.md`, Spec Kit artifacts, tasks, or `docs/solutions/`
+
 ## Superpowers
 
 Repository:

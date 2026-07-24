@@ -26,6 +26,7 @@ The goal is not perfection. The goal is enough clarity that the first product br
 - Feasibility risks to challenge before implementation
 - Visual workflow, wireframe, sketch, sample output, or prototype needed for approval
 - Triggered tool/review checkpoints needed before implementation
+- Specialist or multi-agent review needed, only if parallel viewpoints would save time
 
 ## Readiness Summary Format
 
@@ -41,5 +42,6 @@ When ready, summarize:
 - Feasibility risks
 - Visual or workflow artifacts needed before build
 - Triggered tools or review lenses needed, if any
+- Specialist review needed, if any
 
 Then ask whether to generate the first formal artifact.

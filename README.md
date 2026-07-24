@@ -90,6 +90,8 @@ Examples:
   is ready to finish.
 - Use Compound Engineering-style notes when a reusable product, UX, or engineering lesson
   appears.
+- Use a bounded specialist or multi-agent review when product, UI, feasibility, and QA
+  questions can be challenged in parallel without slowing the main thread down.
 
 If a tool is not installed, the skill should still apply the review lens manually and
 say that no callable tool was available.
