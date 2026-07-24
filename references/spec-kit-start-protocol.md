@@ -144,21 +144,11 @@ This protocol stores the operating rules directly, so a separate repo-local `AGE
 
 ## Optional Review Frameworks
 
-Additional frameworks may be used only as review aids. They must not change approved scope without user approval.
+Optional tools may be used as challenge, discipline, and learning aids.
 
-Examples:
+For gstack, Superpowers, Compound Engineering, and optional tool reporting, follow `optional-tools-protocol.md`.
 
-- Product/design/engineering/QA challenge for visual usability and low-friction UX.
-- Disciplined implementation behavior, review, branch finishing, and TDD where practical.
-- Reusable solution notes for meaningful implementation decisions.
-
-If any framework or tool is used, report:
-
-- what was used
-- why it was used
-- what artifact it produced
-- what decision changed because of it
-- what commit or file resulted
+Optional tools must not change approved product scope without user approval.
 
 ## Maintenance Rule
 

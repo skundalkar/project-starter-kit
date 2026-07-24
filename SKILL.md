@@ -13,12 +13,13 @@ Project Starter Kit is a pre-build skill. It helps the user turn a rough idea in
 2. Use `references/framework-map.md` to organize discovery internally.
 3. Use `references/readiness-check.md` before producing formal artifacts.
 4. Run the required example prototype pass unless the user explicitly skips it.
-5. Generate the three starter artifacts using:
+5. If optional project tools are useful, follow `references/optional-tools-protocol.md`.
+6. Generate the three starter artifacts using:
    - `templates/project-brief.md`
    - `templates/prototype-pass.md`
    - `templates/build-brief.md`
-6. After starter artifacts exist, ask whether to create the Git repo and start the Spec Kit handoff.
-7. If yes, follow `references/spec-kit-start-protocol.md`.
+7. After starter artifacts exist, ask whether to create the Git repo and start the Spec Kit handoff.
+8. If yes, follow `references/spec-kit-start-protocol.md`.
 
 ## Invocation Behavior
 
@@ -75,6 +76,8 @@ Every substantive response should make the current state clear:
 Avoid leaving the user guessing whether the process is paused, waiting for approval, or continuing.
 
 If optional project tools or frameworks were used during the step, include an explicit tool summary in the same status or final response.
+
+For tool definitions and usage guidance, follow `references/optional-tools-protocol.md`.
 
 For each tool or framework used, report:
 
