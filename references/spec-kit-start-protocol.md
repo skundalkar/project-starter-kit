@@ -111,9 +111,51 @@ If a hosting platform or repository policy requires a different merge strategy, 
 2. Stop and ask the user to approve the specification.
 3. After approval, generate the technical plan.
 4. Stop and ask the user to approve the technical plan.
-5. After approval, generate tasks.
-6. Begin implementation only after tasks exist.
-7. Run Spec Kit analysis/checks, if available, to compare starter artifacts, generated spec, plan, tasks, and implementation.
+5. After plan approval, run the Intermediate Specialist Review Quality Gate when triggered.
+6. After approved review changes are applied, generate tasks.
+7. Begin implementation only after tasks exist.
+8. Run Spec Kit analysis/checks, if available, to compare starter artifacts, generated spec, plan, tasks, and implementation.
+
+## Intermediate Specialist Review Quality Gate
+
+Use this gate after technical plan approval and before task generation when the
+project has high-risk data, AI, trust/safety, analytics, UX, platform, workflow,
+or architecture assumptions.
+
+Trigger examples:
+
+- the plan depends on a data source, baseline, model, classifier, external API, or
+  provider constraint that could invalidate the product
+- user-facing trust, safety, legal, financial, medical, identity, or account-level
+  conclusions are involved
+- visual/dashboard/workflow choices materially affect decision quality
+- multiple technical paths remain plausible and task generation would prematurely
+  harden the wrong one
+- the user asks for more eyes, a second opinion, specialist review, or different
+  perspectives
+
+Recommended review lenses:
+
+- Product/MVP review: user value, MVP boundary, scope creep, missing decisions
+- Data/analytics review: baselines, scoring, leakage, data completeness, replay validity
+- Technical architecture review: interfaces, contracts, testability, implementation risks
+- Trust/safety review: evidence, confidence, false positives, account-level language
+- UX/dashboard review: scanability, comparison quality, drilldown usefulness
+
+Quality gate procedure:
+
+1. Run only the review lenses that match the triggers.
+2. Prefer independent specialist/subagent review when available and useful; otherwise
+   apply the review lenses manually.
+3. Consolidate findings into a dated review report such as
+   `docs/reviews/YYYY-MM-DD-spec-plan-review.md`.
+4. Identify accepted findings, deferred findings, and scope changes requiring user approval.
+5. Apply only accepted changes to Spec Kit artifacts as addenda or explicit updates.
+6. Commit the review report and artifact updates separately from implementation code.
+7. Proceed to task generation only after the revised plan remains approved.
+
+Do not let reviewers change the approved product name, promise, MVP boundary, or core
+UX direction without user approval.
 
 ## Local Verification During Implementation
 

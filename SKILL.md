@@ -19,7 +19,7 @@ Project Starter Kit is a pre-build skill. It helps the user turn a rough idea in
    - `templates/prototype-pass.md`
    - `templates/build-brief.md`
 7. After starter artifacts exist, ask whether to create the Git repo and start the Spec Kit handoff.
-8. If yes, follow `references/spec-kit-start-protocol.md`.
+8. If yes, follow `references/spec-kit-start-protocol.md`, including the Intermediate Specialist Review Quality Gate when triggered after plan approval and before task generation.
 
 ## Invocation Behavior
 
