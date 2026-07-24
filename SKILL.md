@@ -73,3 +73,16 @@ Every substantive response should make the current state clear:
 - what is waiting on the user, if anything
 
 Avoid leaving the user guessing whether the process is paused, waiting for approval, or continuing.
+
+If optional project tools or frameworks were used during the step, include an explicit tool summary in the same status or final response.
+
+For each tool or framework used, report:
+
+- name of the tool or framework
+- specific feature, mode, practice, or review used
+- why it was used
+- artifact, file, or output produced
+- decision changed, if any
+- commit or file result, if applicable
+
+If no optional tools or frameworks were used, no tool summary is required unless the user asks.
