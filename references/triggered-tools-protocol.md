@@ -127,6 +127,39 @@ Recommended specialist briefs:
 - QA challenge: "Identify untested visible UI actions, broken flows, stale data, and
   misleading success states."
 
+Role-specific output contracts:
+
+UI/UX specialist should return:
+
+- top 5 UI problems
+- what to remove
+- what to keep
+- what the screen should show instead
+- what visual artifact the user expects
+
+Do not change MVP scope. Return findings only; do not implement unless the user
+approves.
+
+QA specialist should return:
+
+- tested flows
+- pass/fail
+- broken or misleading UI states
+- missing tests
+- recommended fixes
+
+Do not let specialists change product scope. They should review the current app against
+the approved MVP and return findings, not implement unless the user approves.
+
+Main agent must coordinate specialist results:
+
+- summarize findings
+- identify overlaps
+- decide what to apply
+- ask the user before scope changes
+- implement approved changes
+- report what changed
+
 Expected output:
 
 - specialist role used
