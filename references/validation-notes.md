@@ -95,3 +95,7 @@ Adjustment made:
 
 - Added visual or workflow artifacts to readiness because long text-only approval created friction.
 - Added feasibility risks before formal artifact generation because implementation discovered major assumption changes late.
+- Reframed optional tools as triggered tools because visual/product uncertainty should activate
+  review behavior even when the user does not explicitly ask for a tool by name.
+- Strengthened the visual prototype pass because generated/sample artifacts exposed the
+  intended product output faster than UI implementation alone.

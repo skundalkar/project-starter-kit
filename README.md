@@ -73,6 +73,27 @@ Examples:
 
 The goal is to catch weak assumptions early, before code is written.
 
+For visual, spatial, creative, AI-output, or interaction-heavy products, this prototype
+pass is expected, not merely nice to have. The skill should help create a quick visual or
+output artifact so the user can react to something concrete before implementation.
+
+## Triggered Review Tools
+
+Some tools are situational rather than always-on. In this kit, that means they are
+triggered by the project shape or risk, not ignored until someone asks for them.
+
+Examples:
+
+- Use a GStack-style product/design challenge when the UI feels cluttered, unclear, or
+  visually untrustworthy.
+- Use Superpowers-style discipline when implementation starts, tests matter, or a branch
+  is ready to finish.
+- Use Compound Engineering-style notes when a reusable product, UX, or engineering lesson
+  appears.
+
+If a tool is not installed, the skill should still apply the review lens manually and
+say that no callable tool was available.
+
 ## After The Starter Artifacts
 
 After the three artifacts exist, the skill asks whether you want to create a Git repo and start the Spec Kit handoff.

@@ -25,6 +25,7 @@ The goal is not perfection. The goal is enough clarity that the first product br
 - AI, data, platform, or integration assumptions
 - Feasibility risks to challenge before implementation
 - Visual workflow, wireframe, sketch, sample output, or prototype needed for approval
+- Triggered tool/review checkpoints needed before implementation
 
 ## Readiness Summary Format
 
@@ -39,5 +40,6 @@ When ready, summarize:
 - Exclusions
 - Feasibility risks
 - Visual or workflow artifacts needed before build
+- Triggered tools or review lenses needed, if any
 
 Then ask whether to generate the first formal artifact.

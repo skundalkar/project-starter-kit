@@ -87,6 +87,19 @@ Ask the user for or help create the example:
 - For a workflow product, walk through one realistic case step by step.
 - For an AI product, manually simulate the AI response before assuming automation.
 
+For visual, spatial, creative, AI-output, design-heavy, or interaction-heavy products, do not treat this pass as optional. Create or request a fast visual/output artifact unless the user explicitly skips it.
+
+Useful visual/output artifacts include:
+
+- chat-generated image exploration
+- wireframe
+- UI block diagram
+- workflow diagram
+- sample output artifact
+- annotated image
+- clickable low-fidelity flow
+- manual AI response simulation
+
 During the pass, identify:
 
 - the example input or scenario
@@ -94,8 +107,11 @@ During the pass, identify:
 - the rough output the user would see
 - assumptions that broke or became doubtful
 - what changed in the MVP because of the pass
+- whether the real runtime path has credentials, billing, device permissions, API access, or platform constraints
 
 Do not proceed to `project-brief.md`, `prototype-pass.md`, or `build-brief.md` until the example prototype pass has either been completed or the user explicitly chooses to skip it.
+
+If product/design uncertainty appears during the pass, follow `triggered-tools-protocol.md` before formalizing the build brief.
 
 ## After Starter Artifacts
 

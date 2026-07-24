@@ -142,13 +142,16 @@ Future agents should be told to read:
 
 This protocol stores the operating rules directly, so a separate repo-local `AGENTS.md` file is not required by default.
 
-## Optional Review Frameworks
+## Triggered Review Frameworks
 
-Optional tools may be used as challenge, discipline, and learning aids.
+Triggered tools may be used as challenge, discipline, and learning aids.
 
-For gstack, Superpowers, Compound Engineering, and optional tool reporting, follow `optional-tools-protocol.md`.
+For gstack, Superpowers, Compound Engineering, and triggered tool reporting, follow `triggered-tools-protocol.md`.
 
-Optional tools must not change approved product scope without user approval.
+Triggered tools must not change approved product scope without user approval.
+
+Optional does not mean passive: if a trigger condition appears, use the tool, use the
+review lens manually, or explain why it was skipped.
 
 ## Maintenance Rule
 

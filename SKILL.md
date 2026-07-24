@@ -13,7 +13,7 @@ Project Starter Kit is a pre-build skill. It helps the user turn a rough idea in
 2. Use `references/framework-map.md` to organize discovery internally.
 3. Use `references/readiness-check.md` before producing formal artifacts.
 4. Run the required example prototype pass unless the user explicitly skips it.
-5. If optional project tools are useful, follow `references/optional-tools-protocol.md`.
+5. If triggered project-tool conditions appear, follow `references/triggered-tools-protocol.md`.
 6. Generate the three starter artifacts using:
    - `templates/project-brief.md`
    - `templates/prototype-pass.md`
@@ -31,6 +31,8 @@ For "Use Project Starter Kit. Start." or similar:
 - Track what is known and missing using the framework map.
 - Give short running summaries.
 - Always clearly state the next question, next requirement, or what is waiting on the user.
+- Treat visual, workflow, AI-output, or feasibility uncertainty as a trigger for a
+  prototype pass or tool/lens review; do not wait for the user to explicitly request it.
 
 For "Use Project Starter Kit. Start Spec Kit handoff." or similar:
 
@@ -48,11 +50,11 @@ Generate only the three core starter artifacts by default:
 
 Do not create a separate `start-here.md`, `given-prompt.md`, or `AGENTS.md` by default.
 
-## Visual Approval Rule
+## Visual Prototype Rule
 
-For visual, spatial, workflow-heavy, or interaction-heavy products, do not rely only on long markdown for approval.
+For visual, spatial, workflow-heavy, AI-output-heavy, or interaction-heavy products, do not rely only on long markdown for approval.
 
-Before finalizing starter artifacts, produce or request a visual artifact when useful:
+Before finalizing starter artifacts, produce or request a visual artifact. This is required unless the user explicitly skips it:
 
 - wireframe
 - block diagram
@@ -62,7 +64,7 @@ Before finalizing starter artifacts, produce or request a visual artifact when u
 - quick mockup
 - manual prototype walkthrough
 
-Use the visual artifact to challenge assumptions before formalizing the build brief.
+Use the visual artifact to challenge assumptions before formalizing the build brief. For visual products, sample output can expose product truth faster than implementation.
 
 ## Status Rule
 
@@ -75,9 +77,9 @@ Every substantive response should make the current state clear:
 
 Avoid leaving the user guessing whether the process is paused, waiting for approval, or continuing.
 
-If optional project tools or frameworks were used during the step, include an explicit tool summary in the same status or final response.
+If triggered project tools or frameworks were used during the step, include an explicit tool summary in the same status or final response.
 
-For tool definitions and usage guidance, follow `references/optional-tools-protocol.md`.
+For tool definitions and usage guidance, follow `references/triggered-tools-protocol.md`.
 
 For each tool or framework used, report:
 
@@ -88,4 +90,4 @@ For each tool or framework used, report:
 - decision changed, if any
 - commit or file result, if applicable
 
-If no optional tools or frameworks were used, no tool summary is required unless the user asks.
+If a trigger condition appeared and no tool or review lens was used, say why it was skipped.
