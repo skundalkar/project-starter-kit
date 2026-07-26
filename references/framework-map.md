@@ -105,7 +105,21 @@ Examples:
 
 Prefer named artifacts over vague feature labels.
 
-## 8. Experience Flow
+## 8. Product Operating Model
+
+Challenge the user's first product noun and identify what product model actually fits the job.
+
+Capture:
+
+- initial noun or requested artifact, such as dashboard, app, assistant, report, monitor, or tracker
+- alternative models considered, such as anomaly detector, triage queue, investigation console, command center, evidence review tool, workflow tool, or report
+- primary object of attention: user, event, anomaly, task, entity, trend, evidence, document, asset, or workflow
+- primary user inference or decision
+- signal-to-evidence path
+- what would make the interface misleading
+- vocabulary borrowed or rejected from outside product patterns
+
+## 9. Experience Flow
 
 Describe the main user journey.
 
@@ -119,7 +133,7 @@ Capture:
 - completion moment
 - return or reuse behavior
 
-## 9. UI Direction
+## 10. UI Direction
 
 Clarify what kind of interface best serves the product.
 
@@ -131,7 +145,7 @@ Capture:
 - whether the product should feel guided, exploratory, operational, creative, analytical, or calm
 - where visual representations, wireframes, diagrams, or prototypes are needed before implementation
 
-## 10. Intelligence And Data
+## 11. Intelligence And Data
 
 Define what the product needs to know, infer, remember, calculate, detect, generate, or explain.
 
@@ -147,7 +161,7 @@ Capture:
 - fallbacks when automation is weak
 - privacy or sensitivity concerns
 
-## 11. Trust And Control
+## 12. Trust And Control
 
 Identify where the user needs agency.
 
@@ -162,7 +176,7 @@ Capture:
 - source or evidence visibility
 - safety, legal, financial, medical, privacy, or emotional risk boundaries
 
-## 12. MVP Boundary
+## 13. MVP Boundary
 
 Separate the smallest useful version from the full vision.
 
@@ -176,7 +190,7 @@ Capture:
 - simulated or manual fallbacks
 - future capabilities to preserve without building now
 
-## 13. Feasibility Challenge
+## 14. Feasibility Challenge
 
 Stress-test the product before implementation.
 
@@ -189,7 +203,7 @@ Capture:
 - what can be tested with a sketch, mockup, sample input, fake data, manual run, API check, or tiny prototype
 - what decision would change if the assumption fails
 
-## 14. Example Prototype Pass
+## 15. Example Prototype Pass
 
 Run one concrete example through the proposed product loop before formalizing the starter artifacts.
 
@@ -216,7 +230,7 @@ Capture:
 - which MVP decisions changed
 - whether a visual artifact, wireframe, sample output, or prototype should be included in the handoff
 
-## 15. Build Handoff
+## 16. Build Handoff
 
 Capture what a future build agent needs so it can implement without guessing.
 

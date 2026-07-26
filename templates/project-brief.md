@@ -45,6 +45,18 @@ Describe the smallest repeated product loop:
 
 Name the concrete outputs the product creates.
 
+## Product Operating Model
+
+Describe the chosen operating model, the initial framing that was challenged, and why this model fits the user job.
+
+## Primary User Inference
+
+Describe what the user should understand, decide, compare, trust, or do after using the product.
+
+## Signal-To-Evidence Path
+
+For analytics, monitoring, AI, workflow, or decision-support products, describe how the product moves from signal to driver to evidence to interpretation.
+
 ## Experience Direction
 
 Describe the first journey, main modes, and interface direction.

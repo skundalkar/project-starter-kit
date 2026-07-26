@@ -12,7 +12,7 @@ Use this file as the implementation handoff after reading `project-brief.md` and
 
 The product direction and MVP boundary come from `project-brief.md`.
 
-The feasibility decisions and prototype learnings come from `prototype-pass.md`.
+The feasibility decisions, Product Design Gate decisions, and prototype learnings come from `prototype-pass.md`.
 
 Do not change the approved product name, promise, MVP boundary, or core UX direction without asking the user.
 
@@ -49,6 +49,10 @@ Build in this order unless there is a clear technical reason to adjust:
 2. 
 3. 
 
+## Product Operating Model
+
+State the approved operating model and the initial framing it replaced or refined.
+
 ## User Flow
 
 Describe the user journey the MVP must support.
@@ -75,7 +79,7 @@ Describe how the user can review, edit, approve, undo, override, or understand u
 
 ## Visual / UX Expectations
 
-Describe the visual quality, interaction behavior, wireframes, diagrams, or prototype outputs that should guide implementation.
+Describe the visual quality, interaction behavior, wireframes, diagrams, Product Design Gate concepts, critique decisions, or prototype outputs that should guide implementation.
 
 ## Acceptance Criteria
 
@@ -107,7 +111,7 @@ If yes, follow `references/spec-kit-start-protocol.md`.
 Use these as source material for Spec Kit specification generation:
 
 - Product truth: `project-brief.md`
-- Prototype decisions: `prototype-pass.md`
+- Product Design Gate and prototype decisions: `prototype-pass.md`
 - Implementation handoff: `build-brief.md`
 
 Spec Kit must not change approved product scope without user approval.

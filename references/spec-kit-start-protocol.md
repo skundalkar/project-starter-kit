@@ -19,7 +19,7 @@ In this workflow:
 
 ```text
 Project Starter Kit
--> product discovery, prototype challenge, project brief, build brief
+-> product discovery, Product Design Gate, prototype challenge, project brief, build brief
 
 Spec Kit
 -> specification, technical plan, tasks, implementation, analysis
@@ -44,7 +44,7 @@ If any are missing, stop and return to Project Starter Kit discovery or artifact
 Use the local Project Starter Kit artifacts as the source of truth:
 
 - `project-brief.md` defines product direction, user, promise, MVP boundary, and non-goals.
-- `prototype-pass.md` defines feasibility findings and product decisions changed by prototype/walkthrough work.
+- `prototype-pass.md` defines Product Design Gate decisions, operating-model choices, feasibility findings, and product decisions changed by prototype/walkthrough work.
 - `build-brief.md` defines the implementation handoff.
 
 Do not restart product discovery unless the files are contradictory, incomplete, or impossible to implement.
@@ -176,7 +176,7 @@ After Spec Kit artifacts exist, make their locations clear in project status upd
 
 Future agents should be told to read:
 
-- the starter artifacts: `project-brief.md`, `prototype-pass.md`, and `build-brief.md`
+- the starter artifacts: `project-brief.md`, `prototype-pass.md`, and `build-brief.md`, especially Product Design Gate decisions inside `prototype-pass.md`
 - the active Spec Kit `spec.md`
 - the active Spec Kit `plan.md`
 - the active Spec Kit `tasks.md`

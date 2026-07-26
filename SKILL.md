@@ -12,14 +12,15 @@ Project Starter Kit is a pre-build skill. It helps the user turn a rough idea in
 1. If the user says to start a new project, follow `references/start-protocol.md`.
 2. Use `references/framework-map.md` to organize discovery internally.
 3. Use `references/readiness-check.md` before producing formal artifacts.
-4. Run the required example prototype pass unless the user explicitly skips it.
-5. If triggered project-tool conditions appear, follow `references/triggered-tools-protocol.md`.
-6. Generate the three starter artifacts using:
+4. Run `references/product-design-gate.md` before or during the prototype pass when the product form, UI, operating model, metrics, evidence, or user inference is ambiguous.
+5. Run the required example prototype pass unless the user explicitly skips it.
+6. If triggered project-tool conditions appear, follow `references/triggered-tools-protocol.md`.
+7. Generate the three starter artifacts using:
    - `templates/project-brief.md`
    - `templates/prototype-pass.md`
    - `templates/build-brief.md`
-7. After starter artifacts exist, ask whether to create the Git repo and start the Spec Kit handoff.
-8. If yes, follow `references/spec-kit-start-protocol.md`, including the Intermediate Specialist Review Quality Gate when triggered after plan approval and before task generation.
+8. After starter artifacts exist, ask whether to create the Git repo and start the Spec Kit handoff.
+9. If yes, follow `references/spec-kit-start-protocol.md`, including the Intermediate Specialist Review Quality Gate when triggered after plan approval and before task generation.
 
 ## Invocation Behavior
 
@@ -31,8 +32,8 @@ For "Use Project Starter Kit. Start." or similar:
 - Track what is known and missing using the framework map.
 - Give short running summaries.
 - Always clearly state the next question, next requirement, or what is waiting on the user.
-- Treat visual, workflow, AI-output, or feasibility uncertainty as a trigger for a
-  prototype pass or tool/lens review; do not wait for the user to explicitly request it.
+- Treat visual, workflow, AI-output, operating-model, metric-semantics, evidence, or feasibility uncertainty as a trigger for the Product Design Gate, prototype pass, or tool/lens review; do not wait for the user to explicitly request it.
+- Do not accept the user's first artifact noun, such as dashboard, app, tracker, assistant, monitor, or report, as the final product model without testing what job it must do.
 
 For "Use Project Starter Kit. Start Spec Kit handoff." or similar:
 
@@ -49,6 +50,16 @@ Generate only the three core starter artifacts by default:
 - `build-brief.md`
 
 Do not create a separate `start-here.md`, `given-prompt.md`, or `AGENTS.md` by default.
+
+## Product Design Gate Rule
+
+When the user asks for a dashboard, monitor, analytics surface, workflow, AI assistant, report, or other common product noun, treat that noun as a hypothesis.
+
+Use `references/product-design-gate.md` when the real operating model could be one of several alternatives, such as anomaly detector, triage queue, investigation console, command center, evidence review tool, report, or workflow tool.
+
+For ambiguous visual or decision-support products, compare 2-3 competing product framings or UI concepts before formalizing the build brief unless the user explicitly skips this gate.
+
+Record Product Design Gate decisions in `prototype-pass.md` and carry the chosen operating model into `project-brief.md` and `build-brief.md`.
 
 ## Visual Prototype Rule
 

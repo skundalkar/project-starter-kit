@@ -6,7 +6,7 @@ Project Starter Kit helps a user turn a rough project idea into a clear, build-r
 
 When invoked, do not build the product yet. Do not create a repository yet. Do not generate a formal specification yet.
 
-First, help the user discover what they are actually trying to build.
+First, help the user discover what they are actually trying to build. Treat the user's first product noun as a hypothesis until the operating model is clear.
 
 ## Invocation
 
@@ -71,6 +71,29 @@ Then summarize the readiness checklist from `readiness-check.md`.
 
 Ask for approval before generating formal artifacts.
 
+## Product Design Gate
+
+Before the example prototype pass, or during it as soon as product/design uncertainty appears, use `product-design-gate.md` when the initial product shape may be wrong.
+
+Trigger this gate when:
+
+- the user asks for a dashboard, monitor, tracker, assistant, report, workflow, or app but the decision job is unclear
+- metrics, scores, categories, thresholds, labels, or evidence may be hard to interpret
+- the product is visual, analytics-heavy, workflow-heavy, AI-output-heavy, trust/safety-sensitive, or interaction-heavy
+- the user expresses confusion about what a number, chart, screen, or output is supposed to mean
+- outside examples or mature product patterns could change the vocabulary or operating model
+
+During this gate:
+
+- challenge the initial noun with 3-5 alternative operating models
+- ask what the user should infer, trust, compare, review, or do next
+- run a lightweight market/pattern scan when current public examples could improve the model
+- create or request 2-3 competing visual or structural concepts for visual/decision-support products
+- map signal -> driver -> evidence -> interpretation
+- record the chosen operating model and user critique in `prototype-pass.md`
+
+Do not proceed to final starter artifacts until the Product Design Gate has passed or the user explicitly skips it.
+
 ## Required Example Prototype Pass
 
 Before generating final starter artifacts, run an example prototype pass.
@@ -111,7 +134,7 @@ During the pass, identify:
 
 Do not proceed to `project-brief.md`, `prototype-pass.md`, or `build-brief.md` until the example prototype pass has either been completed or the user explicitly chooses to skip it.
 
-If product/design uncertainty appears during the pass, follow `triggered-tools-protocol.md` before formalizing the build brief.
+If product/design uncertainty appears during the pass, run or rerun `product-design-gate.md`; also follow `triggered-tools-protocol.md` when tool or review triggers apply before formalizing the build brief.
 
 ## After Starter Artifacts
 
