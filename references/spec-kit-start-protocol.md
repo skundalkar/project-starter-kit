@@ -29,6 +29,12 @@ Use Spec Kit after Project Starter Kit has produced the local starter artifacts.
 
 Do not guess Spec Kit command syntax. Inspect the local environment and available commands. If Spec Kit is unavailable, consult the official repo/docs or explain exactly what setup is needed.
 
+## Repo & Continuity Gate
+
+Before Spec Kit handoff, run `repo-continuity-gate.md`. Record project scale, local Git status, commit count, remote status, push status, and repo URL when available.
+
+For `private_project`, `collaborative_project`, or `production_path`, GitHub remote setup is required before implementation unless the user explicitly defers it. If deferred, record the decision and repeat the warning before milestone completion.
+
 ## Required Local Artifacts
 
 Before starting, confirm these files exist in the current project folder:
@@ -53,9 +59,9 @@ Do not let Spec Kit, review frameworks, or implementation convenience change the
 
 ## User Confirmation
 
-Ask:
+Ask after repository status is explicit:
 
-"Do you want to create a private Git repo and start the Spec Kit handoff for this project?"
+"Do you want to create or confirm a private GitHub repo and start the Spec Kit handoff for this project?"
 
 If yes, ask or confirm:
 
@@ -71,7 +77,8 @@ If yes, ask or confirm:
 3. Create the private GitHub repository if requested.
 4. Keep the generated Project Starter Kit artifacts in the repo.
 5. Commit documentation and starter artifacts before any application code.
-6. Push periodically if a remote is configured. If no remote exists, keep local commits clean and explain what remote setup is needed.
+6. Push periodically if a remote is configured. If no remote exists, record the user-approved deferral and explain what remote setup is needed.
+7. Before implementation and milestone completion, report whether the latest commit is pushed.
 
 ## Git History Preference
 

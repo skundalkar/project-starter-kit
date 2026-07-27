@@ -41,6 +41,23 @@ List things the implementation agent must not add unless the user explicitly app
 
 - 
 
+
+## Repository And Continuity Gate
+
+Before implementation starts, report:
+
+- Project scale:
+- Local Git repo:
+- Current branch:
+- Commit count:
+- Latest commit:
+- GitHub remote:
+- Pushed to remote:
+- Repo URL:
+- Deferred repository decision, if any:
+
+For private, collaborative, or production-path projects, do not begin implementation until GitHub setup is completed or explicitly deferred by the user.
+
 ## Implementation Priority
 
 Build in this order unless there is a clear technical reason to adjust:
@@ -102,7 +119,7 @@ Describe the exact local path or sequence the user should try to verify the MVP.
 
 ## Spec Kit Handoff
 
-After this build brief is approved, ask whether to create the Git repo and start the Spec Kit handoff.
+After this build brief is approved, run the Repo & Continuity Gate, then ask whether to create or confirm the GitHub repo and start the Spec Kit handoff.
 
 If yes, follow `references/spec-kit-start-protocol.md`.
 

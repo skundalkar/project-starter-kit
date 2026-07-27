@@ -230,7 +230,21 @@ Capture:
 - which MVP decisions changed
 - whether a visual artifact, wireframe, sample output, or prototype should be included in the handoff
 
-## 16. Build Handoff
+## 16. Project Scale And Continuity
+
+Classify how durable the project is and what continuity setup is required.
+
+Capture:
+
+- project scale: scratch, local prototype, private project, collaborative project, or production path
+- whether work may remain local or must be pushed to GitHub
+- repository name and visibility preference
+- current branch, commit count, latest commit, remote URL, and push status
+- large data or generated artifacts that should be intentionally included or excluded
+- whether GitHub setup was approved, completed, or explicitly deferred
+- milestone push expectations
+
+## 17. Build Handoff
 
 Capture what a future build agent needs so it can implement without guessing.
 

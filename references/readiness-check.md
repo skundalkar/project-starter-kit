@@ -18,6 +18,7 @@ The goal is not perfection. The goal is enough clarity that the first product br
 - Smallest useful MVP loop
 - Primary output artifacts
 - Explicit non-goals for the first version
+- Project scale and repository continuity expectation
 
 ## Strongly Recommended
 
@@ -31,6 +32,7 @@ The goal is not perfection. The goal is enough clarity that the first product br
 - Visual workflow, wireframe, sketch, sample output, or prototype needed for approval
 - Triggered tool/review checkpoints needed before implementation
 - Specialist or multi-agent review needed, only if parallel viewpoints would save time
+- Repo & Continuity Gate status needed before Spec Kit or implementation
 
 ## Readiness Summary Format
 
@@ -50,5 +52,7 @@ When ready, summarize:
 - Visual or workflow artifacts needed before build
 - Triggered tools or review lenses needed, if any
 - Specialist review needed, if any
+- Project scale
+- Repository status or next repository gate
 
 Then ask whether to generate the first formal artifact.

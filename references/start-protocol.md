@@ -4,7 +4,7 @@
 
 Project Starter Kit helps a user turn a rough project idea into a clear, build-ready product direction.
 
-When invoked, do not build the product yet. Do not create a repository yet. Do not generate a formal specification yet.
+When invoked, do not build the product yet. Do not create a repository during initial discovery. Do not generate a formal specification yet. Repository setup is handled by the Repo & Continuity Gate once starter artifacts exist or implementation is about to begin.
 
 First, help the user discover what they are actually trying to build. Treat the user's first product noun as a hypothesis until the operating model is clear.
 
@@ -136,11 +136,17 @@ Do not proceed to `project-brief.md`, `prototype-pass.md`, or `build-brief.md` u
 
 If product/design uncertainty appears during the pass, run or rerun `product-design-gate.md`; also follow `triggered-tools-protocol.md` when tool or review triggers apply before formalizing the build brief.
 
+## Repo & Continuity Gate
+
+After approved starter artifacts exist, run `repo-continuity-gate.md` before Spec Kit, implementation, or milestone completion.
+
+Classify project scale and report repository status. For `private_project`, `collaborative_project`, or `production_path`, do not begin implementation until the user approves GitHub setup or explicitly defers it.
+
 ## After Starter Artifacts
 
-After the approved starter artifacts exist in the current project folder, ask:
+After the approved starter artifacts exist in the current project folder and repository status has been reported, ask:
 
-"Do you want to create the Git repo and start the Spec Kit handoff?"
+"Do you want to create or confirm the GitHub repo and start the Spec Kit handoff?"
 
 If yes, continue with `spec-kit-start-protocol.md`.
 

@@ -99,6 +99,13 @@ List product, UX, MVP, platform, data, AI, or feasibility decisions changed beca
 
 List the specific MVP scope, UX, platform, data, AI, or validation changes required by this pass.
 
+## Project Scale Notes
+
+- Current project scale:
+- Does the prototype suggest this should remain scratch/local, become a private project, become collaborative, or move toward production?
+- Repository or continuity implication:
+
+
 -
 
 ## Visual Approval Notes

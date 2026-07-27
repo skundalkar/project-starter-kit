@@ -18,7 +18,7 @@ to:
 I know what this product is, who it is for, what the MVP should include, what assumptions were tested, and what a build agent should make next.
 ```
 
-It is designed to happen before repository setup, Spec Kit, technical planning, tasks, or application code.
+It is designed to clarify the product before Spec Kit, technical planning, tasks, or application code. Repository setup is handled by an explicit Repo & Continuity Gate once starter artifacts exist or implementation is about to begin.
 
 ## How To Start
 
@@ -96,9 +96,24 @@ Examples:
 If a tool is not installed, the skill should still apply the review lens manually and
 say that no callable tool was available.
 
+
+## Repo & Continuity Gate
+
+After starter artifacts exist, the skill classifies project scale and reports repository status before Spec Kit or implementation.
+
+Project scale options:
+
+- `scratch`: throwaway exploration; Git optional
+- `local_prototype`: useful local artifact; local Git required before implementation
+- `private_project`: continuing project; private GitHub remote required before implementation unless explicitly deferred
+- `collaborative_project`: multiple agents/users/reviewers; GitHub remote required before Spec Kit tasks or implementation
+- `production_path`: deployable or long-lived work; GitHub remote, commit discipline, and milestone push checks required
+
+The gate reports local Git status, branch, commit count, latest commit, GitHub remote, push status, repo URL, and any deferred decision.
+
 ## After The Starter Artifacts
 
-After the three artifacts exist, the skill asks whether you want to create a Git repo and start the Spec Kit handoff.
+After the three artifacts exist, the skill runs the Repo & Continuity Gate, then asks whether you want to create or confirm a GitHub repo and start the Spec Kit handoff.
 
 If you say yes, the Spec Kit handoff protocol guides the next phase:
 

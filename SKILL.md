@@ -19,8 +19,9 @@ Project Starter Kit is a pre-build skill. It helps the user turn a rough idea in
    - `templates/project-brief.md`
    - `templates/prototype-pass.md`
    - `templates/build-brief.md`
-8. After starter artifacts exist, ask whether to create the Git repo and start the Spec Kit handoff.
-9. If yes, follow `references/spec-kit-start-protocol.md`, including the Intermediate Specialist Review Quality Gate when triggered after plan approval and before task generation.
+8. Run `references/repo-continuity-gate.md` after starter artifacts exist and before Spec Kit, implementation, or a major milestone.
+9. After repository status is explicit, ask whether to create/confirm the GitHub repo and start the Spec Kit handoff.
+10. If yes, follow `references/spec-kit-start-protocol.md`, including the Repo & Continuity Gate and the Intermediate Specialist Review Quality Gate when triggered after plan approval and before task generation.
 
 ## Invocation Behavior
 
@@ -34,6 +35,7 @@ For "Use Project Starter Kit. Start." or similar:
 - Always clearly state the next question, next requirement, or what is waiting on the user.
 - Treat visual, workflow, AI-output, operating-model, metric-semantics, evidence, or feasibility uncertainty as a trigger for the Product Design Gate, prototype pass, or tool/lens review; do not wait for the user to explicitly request it.
 - Do not accept the user's first artifact noun, such as dashboard, app, tracker, assistant, monitor, or report, as the final product model without testing what job it must do.
+- Treat project scale as a first-class decision. If the project is more than scratch exploration, run the Repo & Continuity Gate before implementation and make local-vs-GitHub status explicit.
 
 For "Use Project Starter Kit. Start Spec Kit handoff." or similar:
 
@@ -50,6 +52,27 @@ Generate only the three core starter artifacts by default:
 - `build-brief.md`
 
 Do not create a separate `start-here.md`, `given-prompt.md`, or `AGENTS.md` by default.
+
+## Repo & Continuity Gate Rule
+
+Use `references/repo-continuity-gate.md` after starter artifacts exist, before Spec Kit handoff, before implementation, and before milestone completion.
+
+Classify project scale as `scratch`, `local_prototype`, `private_project`, `collaborative_project`, or `production_path`.
+
+For `private_project`, `collaborative_project`, or `production_path`, do not begin implementation until the repository status has been reported and the user has either approved GitHub setup or explicitly deferred it.
+
+Default to a private GitHub repository when creating a remote, unless the user asks for public.
+
+Every milestone final response should include repository status when the gate has been triggered:
+
+- project scale
+- local Git repo
+- branch
+- commit count
+- latest commit
+- GitHub remote
+- pushed status
+- repo URL
 
 ## Product Design Gate Rule
 

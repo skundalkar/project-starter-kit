@@ -45,6 +45,20 @@ Describe the smallest repeated product loop:
 
 Name the concrete outputs the product creates.
 
+## Project Scale And Repository Continuity
+
+- Project scale:
+- Local Git repo:
+- Current branch:
+- Commit count:
+- Latest commit:
+- GitHub remote:
+- Pushed to remote:
+- Repo URL:
+- Deferred repository decision, if any:
+- Large data/artifact handling:
+
+
 ## Product Operating Model
 
 Describe the chosen operating model, the initial framing that was challenged, and why this model fits the user job.
