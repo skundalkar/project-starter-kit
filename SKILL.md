@@ -13,15 +13,17 @@ Project Starter Kit is a pre-build skill. It helps the user turn a rough idea in
 2. Use `references/framework-map.md` to organize discovery internally.
 3. Use `references/readiness-check.md` before producing formal artifacts.
 4. Run `references/product-design-gate.md` before or during the prototype pass when the product form, UI, operating model, metrics, evidence, or user inference is ambiguous.
-5. Run the required example prototype pass unless the user explicitly skips it.
-6. If triggered project-tool conditions appear, follow `references/triggered-tools-protocol.md`.
-7. Generate the three starter artifacts using:
+5. Run `references/product-artifact-review-gate.md` after meaningful product artifacts, visual mocks, dashboards, reports, charts, generated documents, or UI prototypes create user questions, metric confusion, source-coverage concerns, or product-form uncertainty.
+6. Use `references/async-orchestration-gate.md` before major implementation, review, data, or documentation work to split critical-path work from safe parallel sidecar work.
+7. Run the required example prototype pass unless the user explicitly skips it.
+8. If triggered project-tool conditions appear, follow `references/triggered-tools-protocol.md`.
+9. Generate the three starter artifacts using:
    - `templates/project-brief.md`
    - `templates/prototype-pass.md`
    - `templates/build-brief.md`
-8. Run `references/repo-continuity-gate.md` after starter artifacts exist and before Spec Kit, implementation, or a major milestone.
-9. After repository status is explicit, ask whether to create/confirm the GitHub repo and start the Spec Kit handoff.
-10. If yes, follow `references/spec-kit-start-protocol.md`, including the Repo & Continuity Gate and the Intermediate Specialist Review Quality Gate when triggered after plan approval and before task generation.
+10. Run `references/repo-continuity-gate.md` after starter artifacts exist and before Spec Kit, implementation, or a major milestone.
+11. After repository status is explicit, ask whether to create/confirm the GitHub repo and start the Spec Kit handoff.
+12. If yes, follow `references/spec-kit-start-protocol.md`, including the Repo & Continuity Gate and the Intermediate Specialist Review Quality Gate when triggered after plan approval and before task generation.
 
 ## Invocation Behavior
 
@@ -35,6 +37,8 @@ For "Use Project Starter Kit. Start." or similar:
 - Always clearly state the next question, next requirement, or what is waiting on the user.
 - Treat visual, workflow, AI-output, operating-model, metric-semantics, evidence, or feasibility uncertainty as a trigger for the Product Design Gate, prototype pass, or tool/lens review; do not wait for the user to explicitly request it.
 - Do not accept the user's first artifact noun, such as dashboard, app, tracker, assistant, monitor, or report, as the final product model without testing what job it must do.
+- After the user sees an artifact and starts asking what numbers mean, what to infer, what action to take, whether source data is complete, or why the output feels wrong, run the Product Artifact Review Gate before continuing implementation.
+- When multiple independent questions appear, use the Async Orchestration Gate to decide whether specialist review, data generation, documentation capture, or verification should run in parallel.
 - Treat project scale as a first-class decision. If the project is more than scratch exploration, run the Repo & Continuity Gate before implementation and make local-vs-GitHub status explicit.
 
 For "Use Project Starter Kit. Start Spec Kit handoff." or similar:
@@ -99,6 +103,20 @@ Before finalizing starter artifacts, produce or request a visual artifact. This 
 - manual prototype walkthrough
 
 Use the visual artifact to challenge assumptions before formalizing the build brief. For visual products, sample output can expose product truth faster than implementation.
+
+## Product Artifact Review Gate Rule
+
+Use `references/product-artifact-review-gate.md` after a meaningful artifact exists and the user's reaction reveals confusion, new questions, metric ambiguity, data/source uncertainty, action uncertainty, or product-form drift.
+
+This gate reviews the artifact as evidence, not as a finished deliverable. It should identify what became clearer, what became more confusing, which assumptions were exposed, and what must update spec/tasks/docs before more coding.
+
+Do not duplicate the Product Design Gate. Product Design Gate challenges the product form before or during prototyping; Product Artifact Review Gate interrogates a concrete artifact after the user has seen it.
+
+## Async Orchestration Gate Rule
+
+Use `references/async-orchestration-gate.md` when a project step contains independent review, data, documentation, verification, or implementation work that can safely run in parallel.
+
+Project Starter Kit remains the orchestrator. Specialized review agents are sidecars, not new sources of truth. The main agent must define each sidecar's role, scope, allowed files, output, and integration point.
 
 ## Status Rule
 
