@@ -57,6 +57,16 @@ Name the concrete outputs the product creates.
 - Trust, compliance, or safety blocker:
 - Validation test before paid build:
 
+## Competitive / Comparable Products
+
+- Comparable products or patterns:
+- What mature products make easy:
+- What mature products make heavy, risky, or confusing:
+- Patterns to borrow:
+- Patterns to avoid:
+- Differentiation:
+- Product decisions changed:
+
 ## Project Scale And Repository Continuity
 
 - Project scale:
@@ -94,6 +104,17 @@ Describe what the product needs to know, infer, remember, calculate, detect, gen
 ## Trust And Control
 
 Describe where the user needs review, edit, approval, undo, override, confidence signals, evidence, or safety boundaries.
+
+## Safety, Claims, And Privacy
+
+- Sensitive context:
+- Allowed claim types:
+- Forbidden claim types:
+- Safer wording rules:
+- Data minimization:
+- Deletion/reset requirements:
+- Uncertainty language:
+- Review required before launch:
 
 ## Product Rules
 

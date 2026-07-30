@@ -58,6 +58,15 @@ List what the user could wrongly infer and how the product should prevent that.
 
 Summarize any outside product patterns, public research, comparable tools, or vocabulary that changed the direction.
 
+### Competitive / Comparable Products Lens
+
+- Comparable products:
+- Comparison dimensions:
+- What to borrow:
+- What to avoid:
+- Differentiation implication:
+- Feature decisions changed:
+
 ### Concepts Tested And User Critique
 
 List visual or structural concepts tested, what confused the user, and what changed because of critique.
@@ -122,6 +131,20 @@ List the specific MVP scope, UX, platform, data, AI, or validation changes requi
 ## Visual Approval Notes
 
 If this is a visual, spatial, workflow-heavy, or interaction-heavy product, include what visual artifact was used or what visual artifact is still needed.
+
+## Visual Mock Gate
+
+- Visual artifact:
+- First screen:
+- Primary user inference:
+- Primary action:
+- Secondary actions:
+- Information hierarchy:
+- What is immediately clear:
+- What is confusing or crowded:
+- What should be removed:
+- What must be visible before implementation:
+- Visual approval status:
 
 ## Remaining Feasibility Risks
 

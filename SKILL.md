@@ -13,21 +13,24 @@ Project Starter Kit is a pre-build skill. It helps the user turn a rough idea in
 2. Use `references/framework-map.md` to organize discovery internally.
 3. Use `references/readiness-check.md` before producing formal artifacts.
 4. Run `references/product-design-gate.md` before or during the prototype pass when the product form, UI, operating model, metrics, evidence, or user inference is ambiguous.
-5. Run `references/product-artifact-review-gate.md` after meaningful product artifacts, visual mocks, dashboards, reports, charts, generated documents, or UI prototypes create user questions, metric confusion, source-coverage concerns, or product-form uncertainty.
-6. Use `references/async-orchestration-gate.md` before major implementation, review, data, or documentation work to split critical-path work from safe parallel sidecar work.
-7. Run the required example prototype pass unless the user explicitly skips it.
-8. If triggered project-tool conditions appear, follow `references/triggered-tools-protocol.md`.
-9. Generate the three starter artifacts using:
+5. Run `references/competitive-comparable-products-lens.md` when comparable products, public examples, mature workflows, or competitor positioning could change product discovery, feature selection, onboarding, pricing, trust language, or differentiation.
+6. Run `references/health-adjacent-safety-gate.md` for wellness, healthcare, food, sleep, mood, body, accessibility, safety, financial, legal, or other high-trust products where copy, claims, privacy, or recommendations could create harm.
+7. Run `references/product-artifact-review-gate.md` after meaningful product artifacts, visual mocks, dashboards, reports, charts, generated documents, or UI prototypes create user questions, metric confusion, source-coverage concerns, or product-form uncertainty.
+8. Use `references/async-orchestration-gate.md` before major implementation, review, data, or documentation work to split critical-path work from safe parallel sidecar work.
+9. Run the required example prototype pass unless the user explicitly skips it.
+10. If triggered project-tool conditions appear, follow `references/triggered-tools-protocol.md`.
+11. Generate the three starter artifacts using:
    - `templates/project-brief.md`
    - `templates/prototype-pass.md`
    - `templates/build-brief.md`
-10. Run `references/validation-gate.md` when the user wants to continue toward implementation or the product has customer, safety, trust, onboarding, behavior-change, or retention risk.
-11. Run `references/business-acquisition-gate.md` for consumer products, paid products, community-led products, marketplaces, healthcare/wellness products, education products, productivity products, or products that need distribution.
-12. Run `references/build-readiness-gate.md` before Spec Kit handoff or implementation.
-13. Run `references/repo-continuity-gate.md` after starter artifacts exist and before Spec Kit, implementation, or a major milestone.
-14. After build readiness and repository status are explicit, ask whether to initialize/confirm local Git, create/confirm a private GitHub repo, and start the Spec Kit handoff.
-15. If yes, follow `references/spec-kit-start-protocol.md`, including the Repo & Continuity Gate and the Intermediate Specialist Review Quality Gate when triggered after plan approval and before task generation.
-16. Implementation happens through Spec Kit or the appropriate build workflow, not directly inside Project Starter Kit, unless the user explicitly asks for a local prototype and repo readiness has passed or been explicitly deferred.
+12. Run `references/validation-gate.md` when the user wants to continue toward implementation or the product has customer, safety, trust, onboarding, behavior-change, or retention risk.
+13. Run `references/business-acquisition-gate.md` for consumer products, paid products, community-led products, marketplaces, healthcare/wellness products, education products, productivity products, or products that need distribution.
+14. Run `references/visual-mock-gate.md` before implementation for UI-heavy, visual, spatial, workflow-heavy, decision-support, AI-output, or consumer-facing products when a text wireframe is not enough to judge usability.
+15. Run `references/build-readiness-gate.md` before Spec Kit handoff or implementation.
+16. Run `references/repo-continuity-gate.md` after starter artifacts exist and before Spec Kit, implementation, or a major milestone.
+17. After build readiness and repository status are explicit, ask whether to initialize/confirm local Git, create/confirm a private GitHub repo, and start the Spec Kit handoff.
+18. If yes, follow `references/spec-kit-start-protocol.md`, including the Repo & Continuity Gate and the Intermediate Specialist Review Quality Gate when triggered after plan approval and before task generation.
+19. Implementation happens through Spec Kit or the appropriate build workflow, not directly inside Project Starter Kit, unless the user explicitly asks for a local prototype and repo readiness has passed or been explicitly deferred.
 
 ## Invocation Behavior
 
@@ -40,6 +43,8 @@ For "Use Project Starter Kit. Start." or similar:
 - Give short running summaries.
 - Always clearly state the next question, next requirement, or what is waiting on the user.
 - Treat visual, workflow, AI-output, operating-model, metric-semantics, evidence, or feasibility uncertainty as a trigger for the Product Design Gate, prototype pass, or tool/lens review; do not wait for the user to explicitly request it.
+- Treat common-sounding products, crowded product categories, and user requests for market learning or visual review as triggers for the Competitive / Comparable Products Lens.
+- Treat health-adjacent, safety-adjacent, legal-adjacent, financial-adjacent, or body-data products as triggers for the Health-Adjacent Safety Gate before finalizing claims or implementation scope.
 - Do not accept the user's first artifact noun, such as dashboard, app, tracker, assistant, monitor, or report, as the final product model without testing what job it must do.
 - After the user sees an artifact and starts asking what numbers mean, what to infer, what action to take, whether source data is complete, or why the output feels wrong, run the Product Artifact Review Gate before continuing implementation.
 - When multiple independent questions appear, use the Async Orchestration Gate to decide whether specialist review, data generation, documentation capture, or verification should run in parallel.
@@ -91,9 +96,11 @@ Run the track in this order:
 
 1. `references/validation-gate.md`
 2. `references/business-acquisition-gate.md`, when triggered
-3. `references/build-readiness-gate.md`
-4. `references/repo-continuity-gate.md`
-5. Spec Kit handoff or implementation workflow after required approvals
+3. `references/visual-mock-gate.md`, when triggered
+4. `references/health-adjacent-safety-gate.md`, when triggered and not already completed
+5. `references/build-readiness-gate.md`
+6. `references/repo-continuity-gate.md`
+7. Spec Kit handoff or implementation workflow after required approvals
 
 Do not treat "not build ready" as a terminal answer. Report the readiness status, blockers, deferred issues, and the exact next action. Local Git may be initialized when the user asks to proceed into build and the workspace is not already a repo. Creating a GitHub remote creates external state and requires explicit user approval; default to private unless the user asks for public.
 
@@ -122,6 +129,8 @@ Before finalizing starter artifacts, produce or request a visual artifact. This 
 - manual prototype walkthrough
 
 Use the visual artifact to challenge assumptions before formalizing the build brief. For visual products, sample output can expose product truth faster than implementation.
+
+Before implementation, use `references/visual-mock-gate.md` when the product's first real user experience cannot be judged from text alone.
 
 ## Product Artifact Review Gate Rule
 

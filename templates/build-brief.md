@@ -102,9 +102,29 @@ Describe what should be real, mocked, deterministic, manual, or deferred.
 
 Describe how the user can review, edit, approve, undo, override, or understand uncertainty.
 
+## Safety, Claims, And Privacy
+
+- Sensitive context:
+- Allowed claim types:
+- Forbidden claim types:
+- Safer wording rules:
+- Data minimization:
+- Deletion/reset requirements:
+- Uncertainty language:
+- Review required before launch:
+
 ## Visual / UX Expectations
 
 Describe the visual quality, interaction behavior, wireframes, diagrams, Product Design Gate concepts, critique decisions, or prototype outputs that should guide implementation.
+
+## Visual Mock Readiness
+
+- Visual artifact required before implementation:
+- First screen or primary output:
+- Main user inference:
+- Main action:
+- Visual risks:
+- Approval status:
 
 ## Acceptance Criteria
 
