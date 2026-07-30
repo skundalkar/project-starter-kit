@@ -6,6 +6,14 @@
 - Approved by:
 - Date:
 
+## Build Readiness Gate
+
+- Readiness status:
+- Blocking issues:
+- Deferred issues:
+- Required before implementation:
+- Who must approve:
+
 ## How To Use This Brief
 
 Use this file as the implementation handoff after reading `project-brief.md` and `prototype-pass.md`.
@@ -99,6 +107,24 @@ Describe how the user can review, edit, approve, undo, override, or understand u
 Describe the visual quality, interaction behavior, wireframes, diagrams, Product Design Gate concepts, critique decisions, or prototype outputs that should guide implementation.
 
 ## Acceptance Criteria
+
+- 
+
+## Testable Decisions Appendix
+
+### Primary Fixture
+
+- Input:
+- Sample data:
+- Expected output:
+- Required explanation:
+- Required caution or edge behavior:
+
+### Edge States
+
+- 
+
+### Privacy/Data Tests
 
 - 
 

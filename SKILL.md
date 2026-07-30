@@ -21,9 +21,13 @@ Project Starter Kit is a pre-build skill. It helps the user turn a rough idea in
    - `templates/project-brief.md`
    - `templates/prototype-pass.md`
    - `templates/build-brief.md`
-10. Run `references/repo-continuity-gate.md` after starter artifacts exist and before Spec Kit, implementation, or a major milestone.
-11. After repository status is explicit, ask whether to create/confirm the GitHub repo and start the Spec Kit handoff.
-12. If yes, follow `references/spec-kit-start-protocol.md`, including the Repo & Continuity Gate and the Intermediate Specialist Review Quality Gate when triggered after plan approval and before task generation.
+10. Run `references/validation-gate.md` when the user wants to continue toward implementation or the product has customer, safety, trust, onboarding, behavior-change, or retention risk.
+11. Run `references/business-acquisition-gate.md` for consumer products, paid products, community-led products, marketplaces, healthcare/wellness products, education products, productivity products, or products that need distribution.
+12. Run `references/build-readiness-gate.md` before Spec Kit handoff or implementation.
+13. Run `references/repo-continuity-gate.md` after starter artifacts exist and before Spec Kit, implementation, or a major milestone.
+14. After build readiness and repository status are explicit, ask whether to initialize/confirm local Git, create/confirm a private GitHub repo, and start the Spec Kit handoff.
+15. If yes, follow `references/spec-kit-start-protocol.md`, including the Repo & Continuity Gate and the Intermediate Specialist Review Quality Gate when triggered after plan approval and before task generation.
+16. Implementation happens through Spec Kit or the appropriate build workflow, not directly inside Project Starter Kit, unless the user explicitly asks for a local prototype and repo readiness has passed or been explicitly deferred.
 
 ## Invocation Behavior
 
@@ -40,6 +44,7 @@ For "Use Project Starter Kit. Start." or similar:
 - After the user sees an artifact and starts asking what numbers mean, what to infer, what action to take, whether source data is complete, or why the output feels wrong, run the Product Artifact Review Gate before continuing implementation.
 - When multiple independent questions appear, use the Async Orchestration Gate to decide whether specialist review, data generation, documentation capture, or verification should run in parallel.
 - Treat project scale as a first-class decision. If the project is more than scratch exploration, run the Repo & Continuity Gate before implementation and make local-vs-GitHub status explicit.
+- If the user asks to continue into a real build, do not stop at "not build ready." Run the Validation Gate, Business & Acquisition Gate when triggered, Build Readiness Gate, and Repo & Continuity Gate, then state the exact next action that moves the project toward Spec Kit or implementation.
 
 For "Use Project Starter Kit. Start Spec Kit handoff." or similar:
 
@@ -77,6 +82,20 @@ Every milestone final response should include repository status when the gate ha
 - GitHub remote
 - pushed status
 - repo URL
+
+## Build Continuation Track
+
+Use the Build Continuation Track after starter artifacts exist when the user asks to build, implement, create a repo, push to GitHub, start Spec Kit, or continue toward a real product.
+
+Run the track in this order:
+
+1. `references/validation-gate.md`
+2. `references/business-acquisition-gate.md`, when triggered
+3. `references/build-readiness-gate.md`
+4. `references/repo-continuity-gate.md`
+5. Spec Kit handoff or implementation workflow after required approvals
+
+Do not treat "not build ready" as a terminal answer. Report the readiness status, blockers, deferred issues, and the exact next action. Local Git may be initialized when the user asks to proceed into build and the workspace is not already a repo. Creating a GitHub remote creates external state and requires explicit user approval; default to private unless the user asks for public.
 
 ## Product Design Gate Rule
 

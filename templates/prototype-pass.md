@@ -99,6 +99,17 @@ List product, UX, MVP, platform, data, AI, or feasibility decisions changed beca
 
 List the specific MVP scope, UX, platform, data, AI, or validation changes required by this pass.
 
+## Validation Plan
+
+- Target users:
+- Riskiest assumption:
+- Validation question:
+- Test method:
+- Script:
+- Success threshold:
+- Invalidation signal:
+- What changes if validation fails:
+
 ## Project Scale Notes
 
 - Current project scale:

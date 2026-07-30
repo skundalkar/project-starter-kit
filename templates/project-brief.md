@@ -45,6 +45,18 @@ Describe the smallest repeated product loop:
 
 Name the concrete outputs the product creates.
 
+## Business And Growth Hypotheses
+
+- Primary acquisition channel:
+- Secondary acquisition channel:
+- First user segment:
+- Why this segment will care now:
+- Activation event:
+- Retention loop:
+- Monetization hypothesis:
+- Trust, compliance, or safety blocker:
+- Validation test before paid build:
+
 ## Project Scale And Repository Continuity
 
 - Project scale:
