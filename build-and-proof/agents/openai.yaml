@@ -1,0 +1,4 @@
+interface:
+  display_name: "Build & Proof"
+  short_description: "Implement approved behavior and produce risk-matched proof"
+  default_prompt: "Use $build-and-proof to implement this approved change and produce risk-matched evidence."

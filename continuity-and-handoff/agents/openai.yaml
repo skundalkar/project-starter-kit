@@ -1,0 +1,4 @@
+interface:
+  display_name: "Continuity & Handoff"
+  short_description: "Preserve working state and create executable handoffs"
+  default_prompt: "Use $continuity-and-handoff to preserve current state and create an executable handoff."
