@@ -85,12 +85,14 @@ Trigger this gate when:
 
 During this gate:
 
+- clarify the first user/job/outcome and strategic wedge before choosing the surface
 - challenge the initial noun with 3-5 alternative operating models
 - ask what the user should infer, trust, compare, review, or do next
 - run a lightweight market/pattern scan when current public examples could improve the model
 - create or request 2-3 competing visual or structural concepts for visual/decision-support products
 - map signal -> driver -> evidence -> interpretation
 - record the chosen operating model and user critique in `prototype-pass.md`
+- check the chosen model against the behavioral contract
 
 Do not proceed to final starter artifacts until the Product Design Gate has passed or the user explicitly skips it.
 
@@ -131,6 +133,18 @@ During the pass, identify:
 - assumptions that broke or became doubtful
 - what changed in the MVP because of the pass
 - whether the real runtime path has credentials, billing, device permissions, API access, or platform constraints
+- the end-to-end operating flow, including visible intermediate states
+- the execution-boundary map, including real, mocked, manual, and deferred behavior
+
+## Behavioral Contract
+
+Before formal artifacts, summarize observable behavior:
+
+```text
+Trigger | Preconditions | Input | State transitions | Output | User controls | Failure/fallback | Must-not-happen
+```
+
+If the request changes an existing system, follow `behavioral-delta-review.md` and show the current-system impact preview before treating the requirement as understood.
 
 Do not proceed to `project-brief.md`, `prototype-pass.md`, or `build-brief.md` until the example prototype pass has either been completed or the user explicitly chooses to skip it.
 

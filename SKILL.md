@@ -12,25 +12,27 @@ Project Starter Kit is a pre-build skill. It helps the user turn a rough idea in
 1. If the user says to start a new project, follow `references/start-protocol.md`.
 2. Use `references/framework-map.md` to organize discovery internally.
 3. Use `references/readiness-check.md` before producing formal artifacts.
-4. Run `references/product-design-gate.md` before or during the prototype pass when the product form, UI, operating model, metrics, evidence, or user inference is ambiguous.
-5. Run `references/competitive-comparable-products-lens.md` when comparable products, public examples, mature workflows, or competitor positioning could change product discovery, feature selection, onboarding, pricing, trust language, or differentiation.
-6. Run `references/health-adjacent-safety-gate.md` for wellness, healthcare, food, sleep, mood, body, accessibility, safety, financial, legal, or other high-trust products where copy, claims, privacy, or recommendations could create harm.
-7. Run `references/product-artifact-review-gate.md` after meaningful product artifacts, visual mocks, dashboards, reports, charts, generated documents, or UI prototypes create user questions, metric confusion, source-coverage concerns, or product-form uncertainty.
-8. Use `references/async-orchestration-gate.md` before major implementation, review, data, or documentation work to split critical-path work from safe parallel sidecar work.
-9. Run the required example prototype pass unless the user explicitly skips it.
-10. If triggered project-tool conditions appear, follow `references/triggered-tools-protocol.md`.
-11. Generate the three starter artifacts using:
+4. For changes to an existing system, run `references/behavioral-delta-review.md` before treating the requested behavior as understood.
+5. Run `references/product-design-gate.md` before or during the prototype pass when product strategy, product form, UI, operating model, metrics, evidence, or user inference is ambiguous.
+6. Run `references/competitive-comparable-products-lens.md` when comparable products, public examples, mature workflows, or competitor positioning could change product discovery, feature selection, onboarding, pricing, trust language, or differentiation.
+7. Run `references/health-adjacent-safety-gate.md` for wellness, healthcare, food, sleep, mood, body, accessibility, safety, financial, legal, or other high-trust products where copy, claims, privacy, or recommendations could create harm.
+8. Run `references/product-artifact-review-gate.md` after meaningful product artifacts, visual mocks, dashboards, reports, charts, generated documents, or UI prototypes create user questions, metric confusion, source-coverage concerns, or product-form uncertainty.
+9. Use `references/async-orchestration-gate.md` before major implementation, review, data, or documentation work to split critical-path work from safe parallel sidecar work.
+10. Run the required example prototype pass unless the user explicitly skips it. Record the approved behavioral contract, operating flow, and execution-boundary map.
+11. If triggered project-tool conditions appear, follow `references/triggered-tools-protocol.md`.
+12. Generate the three starter artifacts using:
    - `templates/project-brief.md`
    - `templates/prototype-pass.md`
    - `templates/build-brief.md`
-12. Run `references/validation-gate.md` when the user wants to continue toward implementation or the product has customer, safety, trust, onboarding, behavior-change, or retention risk.
-13. Run `references/business-acquisition-gate.md` for consumer products, paid products, community-led products, marketplaces, healthcare/wellness products, education products, productivity products, or products that need distribution.
-14. Run `references/visual-mock-gate.md` before implementation for UI-heavy, visual, spatial, workflow-heavy, decision-support, AI-output, or consumer-facing products when a text wireframe is not enough to judge usability.
-15. Run `references/build-readiness-gate.md` before Spec Kit handoff or implementation.
-16. Run `references/repo-continuity-gate.md` after starter artifacts exist and before Spec Kit, implementation, or a major milestone.
-17. After build readiness and repository status are explicit, ask whether to initialize/confirm local Git, create/confirm a private GitHub repo, and start the Spec Kit handoff.
-18. If yes, follow `references/spec-kit-start-protocol.md`, including the Repo & Continuity Gate and the Intermediate Specialist Review Quality Gate when triggered after plan approval and before task generation.
-19. Implementation happens through Spec Kit or the appropriate build workflow, not directly inside Project Starter Kit, unless the user explicitly asks for a local prototype and repo readiness has passed or been explicitly deferred.
+13. Run `references/validation-gate.md` when the user wants to continue toward implementation or the product has customer, safety, trust, onboarding, behavior-change, or retention risk. Plan validation by risk surface and start from user-visible behavior.
+14. Run `references/business-acquisition-gate.md` for consumer products, paid products, community-led products, marketplaces, healthcare/wellness products, education products, productivity products, or products that need distribution.
+15. Run `references/visual-mock-gate.md` before implementation for UI-heavy, visual, spatial, workflow-heavy, decision-support, AI-output, or consumer-facing products when a text wireframe is not enough to judge usability.
+16. Run `references/build-readiness-gate.md` before Spec Kit handoff or implementation.
+17. Run `references/repo-continuity-gate.md` after starter artifacts exist and before Spec Kit, implementation, or a major milestone.
+18. After shaping approval, create `project-index.md` from `templates/project-index.md` for `private_project`, `collaborative_project`, or `production_path`. Treat it as an entry point, never a new source of truth.
+19. After build readiness and repository status are explicit, ask whether to initialize/confirm local Git, create/confirm a private GitHub repo, and start the Spec Kit handoff.
+20. If yes, follow `references/spec-kit-start-protocol.md`, including behavior/risk-to-task mapping, the Repo & Continuity Gate, and the Intermediate Specialist Review Quality Gate when triggered after plan approval and before task generation.
+21. Implementation happens through Spec Kit or the appropriate build workflow, not directly inside Project Starter Kit, unless the user explicitly asks for a local prototype and repo readiness has passed or been explicitly deferred.
 
 ## Invocation Behavior
 
@@ -43,6 +45,7 @@ For "Use Project Starter Kit. Start." or similar:
 - Give short running summaries.
 - Always clearly state the next question, next requirement, or what is waiting on the user.
 - Treat visual, workflow, AI-output, operating-model, metric-semantics, evidence, or feasibility uncertainty as a trigger for the Product Design Gate, prototype pass, or tool/lens review; do not wait for the user to explicitly request it.
+- For an existing system, show the current-system impact preview from the Behavioral Delta Review before treating the change request as understood.
 - Treat common-sounding products, crowded product categories, and user requests for market learning or visual review as triggers for the Competitive / Comparable Products Lens.
 - Treat health-adjacent, safety-adjacent, legal-adjacent, financial-adjacent, or body-data products as triggers for the Health-Adjacent Safety Gate before finalizing claims or implementation scope.
 - Do not accept the user's first artifact noun, such as dashboard, app, tracker, assistant, monitor, or report, as the final product model without testing what job it must do.
@@ -64,6 +67,8 @@ Generate only the three core starter artifacts by default:
 - `project-brief.md`
 - `prototype-pass.md`
 - `build-brief.md`
+
+For `private_project`, `collaborative_project`, or `production_path`, also create `project-index.md` after shaping approval. It is a Pyramid Index and read-order entry point to the three core artifacts, not a fourth source of product truth.
 
 Do not create a separate `start-here.md`, `given-prompt.md`, or `AGENTS.md` by default.
 
@@ -113,6 +118,18 @@ Use `references/product-design-gate.md` when the real operating model could be o
 For ambiguous visual or decision-support products, compare 2-3 competing product framings or UI concepts before formalizing the build brief unless the user explicitly skips this gate.
 
 Record Product Design Gate decisions in `prototype-pass.md` and carry the chosen operating model into `project-brief.md` and `build-brief.md`.
+
+The gate must cover both strategy and design: who/job/outcome should be served first, and which operating model/artifact makes that job understandable and actionable. Check the chosen design against the behavioral contract.
+
+## Behavioral Contract Rule
+
+During discovery, define observable behavior using:
+
+```text
+Trigger | Preconditions | Input | State transitions | Output | User controls | Failure/fallback | Must-not-happen
+```
+
+For changes to an existing system, use `references/behavioral-delta-review.md`. A broad scope statement does not resolve unit of work, granularity, timing/order, state, controls, outputs, or completion/failure behavior.
 
 ## Visual Prototype Rule
 

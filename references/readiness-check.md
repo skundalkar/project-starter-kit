@@ -19,6 +19,8 @@ The goal is not perfection. The goal is enough clarity that the first product br
 - Primary output artifacts
 - Explicit non-goals for the first version
 - Project scale and repository continuity expectation
+- Behavioral contract covering trigger, unit of work, state/timing, output, controls, and completion/failure
+- Current-system impact preview when the request changes an existing system
 
 ## Strongly Recommended
 
@@ -27,6 +29,7 @@ The goal is not perfection. The goal is enough clarity that the first product br
 - Main data entities or information the product must remember
 - Places where the user needs review, edit, approval, undo, or override
 - AI, data, platform, or integration assumptions
+- Operating flow and execution-boundary questions that the prototype must resolve
 - Feasibility risks to challenge before implementation
 - Product Design Gate decisions, visual concepts, or operating-model alternatives needed for approval
 - Visual workflow, wireframe, sketch, sample output, or prototype needed for approval
@@ -54,5 +57,6 @@ When ready, summarize:
 - Specialist review needed, if any
 - Project scale
 - Repository status or next repository gate
+- Behavioral contract and unresolved behavioral deltas
 
 Then ask whether to generate the first formal artifact.

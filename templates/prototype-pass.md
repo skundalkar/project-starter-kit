@@ -12,6 +12,13 @@ This artifact records the concrete example walkthrough and Product Design Gate d
 
 ## Product Design Gate
 
+### Strategy Check
+
+- First user/job/outcome:
+- Strategic wedge:
+- First-session value:
+- Intentional non-goals:
+
 ### Initial Product Noun Or Framing
 
 Describe the user's starting noun or framing, such as dashboard, monitor, assistant, tracker, report, app, or workflow.
@@ -71,6 +78,36 @@ Summarize any outside product patterns, public research, comparable tools, or vo
 
 List visual or structural concepts tested, what confused the user, and what changed because of critique.
 
+## Behavioral Contract
+
+- Trigger:
+- Preconditions:
+- Input and unit of work:
+- State transitions and timing/order:
+- Output:
+- User controls:
+- Completion behavior:
+- Failure/fallback:
+- Must not happen:
+
+## Behavioral Delta Review
+
+Complete when changing an existing system. Summarize the current-system impact preview from `references/behavioral-delta-review.md`.
+
+| Dimension | Current behavior | Likely behavior after requested change | Intended behavior | Decision needed |
+| --- | --- | --- | --- | --- |
+
+## Operating Flow
+
+```text
+Start trigger -> intake -> validation -> processing stages -> visible intermediate states -> review/approval -> final artifact -> save/reuse
+```
+
+## Execution-Boundary Map
+
+| Component or surface | Responsibility | Real/mocked/manual/deferred | External dependency | Auth/billing/permission | Data crossing boundary | Fallback |
+| --- | --- | --- | --- | --- | --- | --- |
+
 ## Example Input Or Scenario
 
 Describe the real image, sample file, user scenario, messy source input, workflow, sketch, or manual AI simulation used.
@@ -103,6 +140,11 @@ Describe or link to the sketch, diagram, sample output, mockup, image, or manual
 ## Decisions Changed
 
 List product, UX, MVP, platform, data, AI, or feasibility decisions changed because of this pass.
+
+## Decision Ledger
+
+| Decision | Status | Evidence or reason | Affected sections | Approval owner |
+| --- | --- | --- | --- | --- |
 
 ## MVP Changes Required
 

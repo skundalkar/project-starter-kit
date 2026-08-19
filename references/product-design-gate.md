@@ -14,6 +14,18 @@ If the user asks for a dashboard, app, assistant, tracker, report, monitor, work
 
 Do not ask, "Do you want a dashboard?" Ask what decision, inference, comparison, review, or action the product should make easier.
 
+## Strategy And Design Questions
+
+Before choosing a surface, clarify:
+
+- which user and trigger situation should be served first
+- which outcome creates first-session value
+- why this wedge should exist instead of expanding the current workaround
+- what is intentionally excluded from the first version
+- which operating model and artifact make the chosen job understandable and actionable
+
+Do not turn this into a separate strategy phase. Use the answers to challenge the product form and MVP.
+
 ## Required Reframing
 
 Generate 3-5 possible operating models when the product shape is ambiguous.
@@ -41,6 +53,7 @@ For each plausible model, identify:
 - evidence needed to trust the signal
 - what the user does next, if anything
 - what would make the interface misleading
+- whether the model satisfies the behavioral contract
 
 ## Cross-Questioning
 
@@ -134,6 +147,8 @@ Required recorded decisions:
 10. misinterpretation risks
 11. visual concepts tested
 12. user critique and resulting changes
+13. first user/job/outcome and strategic wedge
+14. behavioral contract implications
 
 ## Pass Criteria
 

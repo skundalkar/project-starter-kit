@@ -24,6 +24,14 @@ Add a "Validation Plan" section to `prototype-pass.md` or `build-brief.md`:
 - Invalidation signal:
 - What changes if validation fails:
 
+Also add a risk-surface validation table to `build-brief.md`:
+
+```text
+Risk surface | Likely failure | Proof method | Fixture/scenario | Observable pass | False-positive success to prevent | Owner/stage
+```
+
+Use only applicable surfaces: behavioral semantics, temporal/order, data/source honesty, external boundary, auth/billing/permissions, retries/idempotency, UI interpretation/accessibility, safety/privacy, and deployment/delivery state.
+
 ## Minimum Validation Slice
 
 For each MVP, define one validation slice:
@@ -42,6 +50,15 @@ Decision changed if fail:
 ## Guidance
 
 Prefer validating the riskiest product assumption before validating polish. For workflow or UI products, use a concrete artifact such as cards, a wireframe, a sample output, a fake-door flow, or a concierge walkthrough.
+
+Use behavior-first, outside-to-inside BDD:
+
+1. Start with a user-visible scenario, fixture, and outcome.
+2. Define the product/service contracts needed to make that outcome true.
+3. Add component and unit checks for the internal decisions behind those contracts.
+4. Verify the operating layer itself when orchestration, sequencing, retries, uploads, integrations, or runtime boundaries are part of the product.
+
+A component or manual-command success is not proof that the full operating flow works. Record false-positive success states that could make the build appear correct while the user-visible behavior is wrong.
 
 Useful validation questions:
 

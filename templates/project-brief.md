@@ -13,6 +13,14 @@
 - One-sentence promise:
 - Product thesis:
 
+## Product Strategy
+
+- First user/job/outcome:
+- Strategic wedge:
+- First-session value:
+- Why this should exist:
+- Intentional non-goals:
+
 ## User And Situation
 
 - Primary user:
@@ -40,6 +48,23 @@ Describe the smallest repeated product loop:
 2. Product returns:
 3. User reviews/edits/chooses:
 4. Product saves or improves:
+
+## Behavioral Contract
+
+- Trigger:
+- Preconditions:
+- Input and unit of work:
+- State transitions and timing/order:
+- Output:
+- User controls:
+- Completion behavior:
+- Failure/fallback:
+- Must not happen:
+
+## Decision Ledger
+
+| Decision | Status | Evidence or reason | Affected sections | Approval owner |
+| --- | --- | --- | --- | --- |
 
 ## Product Artifacts
 

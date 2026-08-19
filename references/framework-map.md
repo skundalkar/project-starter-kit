@@ -260,3 +260,44 @@ Capture:
 - validation criteria
 - commit and documentation expectations
 - approval gates before implementation
+
+## 18. Behavioral Contract
+
+Define the observable behavior before implementation language hardens.
+
+Capture:
+
+- trigger and preconditions
+- input and unit of work
+- state transitions and timing/order
+- output and user controls
+- completion and failure/fallback behavior
+- behavior that must not happen
+- current-system impact preview when changing an existing system
+
+## 19. Operating Flow
+
+Map the end-to-end product path:
+
+- start trigger
+- intake and validation
+- processing stages
+- visible intermediate states
+- review or approval
+- final artifact
+- save, reuse, or return loop
+
+## 20. Execution-Boundary Map
+
+For each component or surface, capture:
+
+- responsibility
+- real, mocked, manual, or deferred behavior
+- external dependencies
+- credentials, billing, permissions, or platform constraints
+- data crossing the boundary
+- fallback behavior
+
+## 21. Risk-Surface Validation
+
+Capture only applicable risk surfaces, their likely failures, proof methods, fixtures, observable pass conditions, and false-positive success states.

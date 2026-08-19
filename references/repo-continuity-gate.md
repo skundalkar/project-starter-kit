@@ -72,6 +72,8 @@ Record repository status in `project-brief.md` once the project has a name and s
 Record milestone push status in `build-brief.md`, Spec Kit plan/task updates, or a
 solution note when implementation begins.
 
+After shaping approval, create `project-index.md` from `templates/project-index.md` for `private_project`, `collaborative_project`, or `production_path`. The index is a Pyramid Index and entry point; it links to the three starter artifacts and later Spec Kit files without becoming a new source of truth.
+
 ## When To Rerun
 
 Rerun this gate when:

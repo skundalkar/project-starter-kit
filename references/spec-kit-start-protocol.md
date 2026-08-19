@@ -43,6 +43,8 @@ Before starting, confirm these files exist in the current project folder:
 - `prototype-pass.md`
 - `build-brief.md`
 
+For `private_project`, `collaborative_project`, or `production_path`, also confirm `project-index.md` exists and points to these artifacts in the correct read order.
+
 If any are missing, stop and return to Project Starter Kit discovery or artifact generation.
 
 ## Source Of Truth
@@ -119,9 +121,20 @@ If a hosting platform or repository policy requires a different merge strategy, 
 3. After approval, generate the technical plan.
 4. Stop and ask the user to approve the technical plan.
 5. After plan approval, run the Intermediate Specialist Review Quality Gate when triggered.
-6. After approved review changes are applied, generate tasks.
-7. Begin implementation only after tasks exist.
-8. Run Spec Kit analysis/checks, if available, to compare starter artifacts, generated spec, plan, tasks, and implementation.
+6. After approved review changes are applied, map every approved behavior and critical risk surface to a planned task and verification task.
+7. Generate tasks only after the mapping is complete.
+8. Begin implementation only after tasks exist.
+9. Run Spec Kit analysis/checks, if available, to compare starter artifacts, generated spec, plan, tasks, and implementation.
+
+## Behavior And Risk Traceability
+
+Before task generation, maintain this mapping in `build-brief.md`, the plan, or a plan addendum:
+
+```text
+Approved behavior or critical risk | Spec/plan location | Task | Verification task or check
+```
+
+Start verification from the outside in: user-visible acceptance scenario, then service/component contract checks, then internal unit coverage. For operating flows, include a task that verifies the actual orchestrator/runtime boundary rather than only its underlying commands.
 
 ## Intermediate Specialist Review Quality Gate
 
@@ -183,11 +196,14 @@ After Spec Kit artifacts exist, make their locations clear in project status upd
 
 Future agents should be told to read:
 
+- `project-index.md` first when present
 - the starter artifacts: `project-brief.md`, `prototype-pass.md`, and `build-brief.md`, especially Product Design Gate decisions inside `prototype-pass.md`
 - the active Spec Kit `spec.md`
 - the active Spec Kit `plan.md`
 - the active Spec Kit `tasks.md`
 - any spec, plan, or task addenda
+
+After Spec Kit artifacts exist, update the Pyramid Index links and next action without copying their content into the index.
 
 This protocol stores the operating rules directly, so a separate repo-local `AGENTS.md` file is not required by default.
 

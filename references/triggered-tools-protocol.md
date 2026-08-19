@@ -60,6 +60,12 @@ Answer:
 - Can one real user-provided input be tested before building the full UI?
 - What fallback appears if the runtime path fails?
 
+Record the answers as an execution-boundary map in `prototype-pass.md` and carry implementation-relevant boundaries into `build-brief.md`:
+
+```text
+Component/surface | Responsibility | Real/mocked/manual/deferred | External dependency | Auth/billing/permission | Data crossing boundary | Fallback
+```
+
 This prevents confusing chat-only capability with application/API capability.
 
 ## GStack

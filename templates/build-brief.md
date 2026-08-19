@@ -82,6 +82,19 @@ State the approved operating model and the initial framing it replaced or refine
 
 Describe the user journey the MVP must support.
 
+## Approved Behavioral Contract
+
+Carry forward the approved trigger, preconditions, input/unit of work, state transitions, timing/order, output, controls, completion/failure, and must-not-happen behavior.
+
+## Operating Flow
+
+Describe the end-to-end path from trigger through visible intermediate states, review, final artifact, and reuse.
+
+## Execution-Boundary Map
+
+| Component or surface | Responsibility | Real/mocked/manual/deferred | External dependency | Auth/billing/permission | Data crossing boundary | Fallback |
+| --- | --- | --- | --- | --- | --- | --- |
+
 ## Screens Or Surfaces
 
 List the expected screens, views, modes, or surfaces.
@@ -129,6 +142,20 @@ Describe the visual quality, interaction behavior, wireframes, diagrams, Product
 ## Acceptance Criteria
 
 - 
+
+Write behavior-first scenarios from the outside in. Start with a user-visible fixture and outcome, then identify service/component contracts and internal unit coverage needed to prove it.
+
+## Risk-Surface Validation Plan
+
+| Risk surface | Likely failure | Proof method | Fixture/scenario | Observable pass | False-positive success to prevent | Owner/stage |
+| --- | --- | --- | --- | --- | --- | --- |
+
+Use only applicable surfaces: behavioral semantics, temporal/order, data/source honesty, external boundary, auth/billing/permissions, retries/idempotency, UI interpretation/accessibility, safety/privacy, and deployment/delivery state.
+
+## Behavior And Risk Traceability
+
+| Approved behavior or critical risk | Spec/plan location | Task | Verification task or check |
+| --- | --- | --- | --- |
 
 ## Testable Decisions Appendix
 
