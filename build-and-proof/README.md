@@ -40,6 +40,25 @@ The main artifact is a compact Build & Proof trace. It answers:
 - What component and operating-layer proof ran?
 - What evidence exists, and what remains unproved?
 
+### Who consumes the outputs
+
+| Producer | Artifact or output | Next consumer | Why they need it |
+| --- | --- | --- | --- |
+| Project Starter Kit or specification phase | Approved behavioral contract, risk plan, spec, and tasks | Implementation agent using Build & Proof | Implement the agreed behavior without reopening product scope. |
+| Implementation agent | Code change and Build & Proof trace | Independent verifier or reviewer | Check that the evidence detects the real failure modes and is not merely a passing component suite. |
+| Independent verifier or reviewer | Verification findings and remaining gaps | Human decision-maker | Decide whether to approve, revise, merge, deploy, or accept a known limitation. |
+| Build & Proof | Proven behavior, evidence links, and delivery state | Continuity & Handoff or the next agent | Preserve exact proof, unproved claims, and the first safe next action. |
+| Human decision-maker | Approval or requested changes | Downstream review, release, or operations phase | Continue only with the accepted behavior and evidence threshold. |
+
+```text
+Project Starter Kit/specification
+  -> approved behavior and risks
+  -> implementation agent + Build & Proof trace
+  -> independent verifier/reviewer
+  -> human decision-maker
+  -> Continuity & Handoff / downstream release phase
+```
+
 ## Small example
 
 **Before:** A transcript parser unit test passes, so the team says transcript replay works.

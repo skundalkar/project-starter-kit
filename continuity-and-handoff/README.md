@@ -35,6 +35,24 @@ Depending on the boundary, the skill produces either:
 - a compact current-state update, or
 - an executable handoff containing source-of-truth read order, approved decisions, evidence, delivery state, blockers, next actions, and escalation rules.
 
+### Who consumes the outputs
+
+| Producer | Artifact or output | Next consumer | Why they need it |
+| --- | --- | --- | --- |
+| Project Starter Kit or current project phase | Pyramid Index, approved artifacts, and working constraints | Continuity & Handoff | Establish the source of truth and preserve must-not-drift decisions. |
+| Implementation agent or Build & Proof | Completed work, proof trace, and delivery evidence | Independent verifier or reviewer | Reproduce the checks, challenge gaps, and distinguish proven behavior from claims. |
+| Current agent or process | Working contract and delivery ledger | Human decision-maker | Understand what is done, pushed, deployed, verified, blocked, or awaiting authority. |
+| Human decision-maker | Approval, rejection, deferral, or new constraint | Handoff or next agent | Continue with explicit authority instead of inferring the decision from prior conversation. |
+| Continuity & Handoff | Executable handoff | Next agent and downstream specification, implementation, review, release, or operations phase | Resume from the correct artifacts, delivery plane, evidence, and ordered next actions. |
+
+```text
+Current project phase / implementation agent
+  -> working contract + evidence + delivery ledger
+  -> independent verifier/reviewer and human decision-maker
+  -> executable handoff
+  -> next agent / downstream project phase
+```
+
 ## Small example
 
 **Before:** A new thread hears, “The feature is done,” but cannot tell whether changes are only local, committed, pushed, deployed, or tested by the user.
