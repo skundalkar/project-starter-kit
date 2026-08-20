@@ -96,6 +96,29 @@ Use `run_dashboard` when evidence contains visit start/end times plus named arti
 
 If visit timing is absent but ordered events exist, use `run_walkthrough`. If neither exists, use a lifecycle/recipe view and state that no observed run record is preserved.
 
+### Renderer-complete projection contract
+
+Keep evidence semantics in canonical records and add a deterministic visual index under each `run_dashboard` view:
+
+```json
+{
+  "projection": {
+    "time_mode": "observed_time | ordinal_recipe",
+    "lanes": [{"id":"lane-id","label":"Visible label","kind":"state | human | system | external | terminal","order":1}],
+    "visits": [{"id":"visit-id","record_type":"session | event","record_id":"canonical-id","lane_id":"lane-id","label":"Visible label","order":1,"start":"optional ISO time","end":"optional ISO time"}],
+    "artifact_rows": [{"id":"row-id","label":"Visible label","order":1}],
+    "artifacts": [{"artifact_id":"canonical-artifact-id","row_id":"row-id","anchor_visit_id":"optional visit-id","anchor":"start | end","order":0}],
+    "handoffs": [{"id":"handoff-id","artifact_id":"canonical-artifact-id","target_visit_id":"visit-id","class":"formal_artifact_input | route_decision | terminal_transition | continuity_context","formal":true,"verification":"observed","label":"Visible label","meaning":"Why it matters","evidence":["E1"]}],
+    "event_marks": [{"event_id":"canonical-event-id","lane_id":"lane-id","order":2,"time":"optional ISO time"}],
+    "terminals": [{"id":"terminal-id","from_visit_id":"visit-id","label":"Named outcome","class":"terminal_transition","verification":"observed","evidence":["E1"]}]
+  }
+}
+```
+
+The projection contains no free-standing evidence claims: every visit, artifact, event, and evidence citation resolves to the canonical model. A source adapter may normalize any project format into these fields; the renderer must use only this contract and must never recognize phase names, filenames, framework names, or project-specific schemas.
+
+Use `observed_time` only when visit start/end timestamps are evidenced. Use `ordinal_recipe` for code/design-derived paths and label them as recipes, never sessions. In ordinal mode, width communicates step span only—not elapsed time.
+
 ## Artifact and run records
 
 Use an artifact record when an implementation names a concrete inspectable object. Record its form (`file`, `folder`, `database_entity`, `api_payload`, `queue_record`, `state_field`, `in_memory`, or `conceptual`), exact or patterned location, persistence behavior, evidence, and uncertainty. “Conceptual” and “in memory only” are valid, useful answers.

@@ -20,8 +20,9 @@ Use `assets/canonical-model.template.json` for machine-checkable work. Read `ref
 3. Inventory entities: subsystems, actors, states or visits, triggers, decisions, artifacts, data stores, external systems, human events, system events, and terminal outcomes.
 4. Register every relationship with a class, verification status, evidence citation, and plain-language meaning. Treat chronology and causality as separate claims.
 5. Mark each statement `observed`, `inferred`, or `unknown`. Formal artifact-flow edges require observed evidence that the target actually consumes the named artifact.
-6. Validate the model with `python3 scripts/validate_model.py <model.json>`. For a compact standalone explainer, run `python3 scripts/render_model.py <model.json> <output.html>`.
-7. Select only the views that answer the user's questions. Treat each as a first-class diagram grammar, not the same node grid with a different filter:
+6. Normalize repository-specific evidence into the stable schema. Do not teach the renderer project vocabulary. For run/session views, populate the renderer-complete `projection` contract described in the reference; use `python3 scripts/build_dashboard_projection.py <model.json> <output.json>` as a deterministic starting point, then audit every generated handoff.
+7. Validate the model with `python3 scripts/validate_model.py <model.json>`. Validation must fail when a dashboard lacks lanes/visits, references missing records, or presents an unobserved relationship as formal. For a compact standalone explainer, run `python3 scripts/render_model.py <model.json> <output.html>`.
+8. Select only the views that answer the user's questions. Treat each as a first-class diagram grammar, not the same node grid with a different filter:
    - architecture/system diagram for components, ownership, deployment boundaries, stores, and external systems;
    - flow/sequence diagram for ordered messages, artifact handoffs, and human/system involvement across named participants;
    - lifecycle/state diagram for legal states, triggers, waits, retries, recovery, and terminal outcomes;
@@ -29,9 +30,9 @@ Use `assets/canonical-model.template.json` for machine-checkable work. Read `ref
    - decision/control map for route choices, gates, uncertainty, and operator authority;
    - session/run inspector only when ordered event evidence exists. Separate a real observed run from a code-derived execution recipe. When visit start/end evidence exists, prefer the `run_dashboard` grammar: a horizontal time axis, one lane per state family, repeated visit blocks whose widths encode duration, separate artifact rows, explicit human/system/terminal lanes, and only classified handoff ribbons.
    - continuity/session view for persisted state, handoff summaries, queue/task records, restart context, session identity, and explicit compaction evidence—or an explicit statement that the project does not preserve them.
-8. Draw separate visual layers for state visits, artifact provenance, route decisions, human/system events, and explanatory context. A view may combine layers only when edge classes remain explicit.
-9. Lead with “what this shows” and the decision-relevant takeaway. Explain every major diagram in plain language.
-10. Verify labels, contrast, narrow-width layout, keyboard interaction, view navigation, and every edge against the canonical register. Report open uncertainties beside the visual.
+9. Draw separate visual layers for state visits, artifact provenance, route decisions, human/system events, and explanatory context. A view may combine layers only when edge classes remain explicit.
+10. Lead with “what this shows” and the decision-relevant takeaway. Explain every major diagram in plain language.
+11. Verify labels, contrast, narrow-width layout, keyboard interaction, view navigation, and every edge against the canonical register. Report open uncertainties beside the visual.
 
 ## Visual and interaction rules
 
@@ -44,6 +45,7 @@ Use `assets/canonical-model.template.json` for machine-checkable work. Read `ref
 - Never infer compaction from long duration, context limits, or multi-step work. Show compaction only from an explicit transcript/event record. Keep formal artifacts, persisted state, queue/task records, handoff summaries, and narrative/restart context as different provenance classes.
 - Keep diagrams compact. Prefer multiple focused views over one universal graph.
 - Do not reduce a richly evidenced run to cards. For GraphRun-like ledgers—or any system with timed visits, durable artifacts, and event records—make the session dashboard a first-class view beside architecture, sequence, and lifecycle. Provide run selection and timeline/artifact focus controls when they materially help.
+- Treat `projection` as a lossless visual index over canonical IDs, not a second narrative model. It may choose lane order, artifact rows, and anchors; it must not introduce facts, rename uncertainty into certainty, or contain an edge that is absent from the classified evidence register.
 
 ## Output contract
 

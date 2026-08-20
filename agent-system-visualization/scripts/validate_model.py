@@ -135,6 +135,46 @@ def validate(model: dict) -> list[str]:
             require(session_id in session_ids, f"view {view_id}: unknown session {session_id}", errors)
         for step in view.get("steps", []):
             require(step.get("relationship_id") in relationship_ids, f"view {view_id}: step has unknown relationship", errors)
+        if view.get("type") == "run_dashboard":
+            projection = view.get("projection")
+            require(isinstance(projection, dict), f"view {view_id}: run_dashboard needs a renderer-complete projection", errors)
+            if isinstance(projection, dict):
+                require(projection.get("time_mode") in {"observed_time", "ordinal_recipe"}, f"view {view_id}: invalid projection time_mode", errors)
+                lane_ids = [item.get("id") for item in projection.get("lanes", [])]
+                visit_ids = [item.get("id") for item in projection.get("visits", [])]
+                row_ids = [item.get("id") for item in projection.get("artifact_rows", [])]
+                require(bool(lane_ids), f"view {view_id}: projection needs lanes", errors)
+                require(bool(visit_ids), f"view {view_id}: projection needs visits", errors)
+                require(None not in lane_ids and len(lane_ids) == len(set(lane_ids)), f"view {view_id}: projection lane ids must be present and unique", errors)
+                require(None not in visit_ids and len(visit_ids) == len(set(visit_ids)), f"view {view_id}: projection visit ids must be present and unique", errors)
+                for visit in projection.get("visits", []):
+                    require(visit.get("lane_id") in lane_ids, f"view {view_id}: visit {visit.get('id')} has unknown lane", errors)
+                    record_type, record_id = visit.get("record_type"), visit.get("record_id")
+                    require(record_type in {"session", "event"}, f"view {view_id}: visit {visit.get('id')} has invalid record_type", errors)
+                    require(record_id in (session_ids if record_type == "session" else event_ids), f"view {view_id}: visit {visit.get('id')} has unknown canonical record", errors)
+                    if projection.get("time_mode") == "observed_time":
+                        require(bool(visit.get("start")) and bool(visit.get("end")), f"view {view_id}: timed visit {visit.get('id')} needs start/end", errors)
+                for item in projection.get("artifacts", []):
+                    require(item.get("artifact_id") in artifact_ids, f"view {view_id}: projected artifact is unknown", errors)
+                    require(item.get("row_id") in row_ids, f"view {view_id}: projected artifact has unknown row", errors)
+                    if item.get("anchor_visit_id") is not None:
+                        require(item.get("anchor_visit_id") in visit_ids, f"view {view_id}: projected artifact has unknown anchor visit", errors)
+                for handoff in projection.get("handoffs", []):
+                    require(handoff.get("artifact_id") in artifact_ids, f"view {view_id}: handoff {handoff.get('id')} has unknown artifact", errors)
+                    require(handoff.get("target_visit_id") in visit_ids, f"view {view_id}: handoff {handoff.get('id')} has unknown target visit", errors)
+                    require(handoff.get("class") in RELATIONSHIP_CLASSES, f"view {view_id}: handoff {handoff.get('id')} has invalid class", errors)
+                    require(handoff.get("verification") in VERIFICATION, f"view {view_id}: handoff {handoff.get('id')} has invalid verification", errors)
+                    require(isinstance(handoff.get("formal"), bool), f"view {view_id}: handoff {handoff.get('id')} formal must be boolean", errors)
+                    if handoff.get("formal"):
+                        require(handoff.get("verification") == "observed", f"view {view_id}: formal handoff {handoff.get('id')} must be observed", errors)
+                        require(bool(handoff.get("evidence")), f"view {view_id}: formal handoff {handoff.get('id')} needs evidence", errors)
+                    if handoff.get("class") in NON_FORMAL_CLASSES:
+                        require(handoff.get("formal") is False, f"view {view_id}: contextual handoff {handoff.get('id')} cannot be formal", errors)
+                for mark in projection.get("event_marks", []):
+                    require(mark.get("event_id") in event_ids, f"view {view_id}: event mark has unknown event", errors)
+                    require(mark.get("lane_id") in lane_ids, f"view {view_id}: event mark has unknown lane", errors)
+                for terminal in projection.get("terminals", []):
+                    require(terminal.get("from_visit_id") in visit_ids, f"view {view_id}: terminal {terminal.get('id')} has unknown source visit", errors)
 
     return errors
 
