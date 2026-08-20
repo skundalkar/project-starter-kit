@@ -56,8 +56,71 @@
       "evidence": ["E1"]
     }
   ],
+  "artifact_records": [
+    {
+      "id": "artifact-1",
+      "label": "Named artifact",
+      "form": "file | folder | database_entity | api_payload | queue_record | state_field | in_memory | conceptual",
+      "location": "Exact name/path/pattern, or Conceptual — exact location not evidenced",
+      "persistence": "How long and where it survives",
+      "verification": "observed",
+      "evidence": ["E1"],
+      "uncertainty": "None"
+    }
+  ],
+  "runs": [
+    {
+      "id": "run-1",
+      "label": "Observed run or implemented execution recipe",
+      "kind": "observed_run | execution_recipe",
+      "verification": "observed",
+      "start_reason": "What initiated it",
+      "terminal_outcomes": ["Named outcome"],
+      "evidence": ["E1"],
+      "note": "Limits of the record"
+    }
+  ],
+  "sessions": [
+    {
+      "id": "session-1",
+      "run_id": "run-1",
+      "label": "Persistent session or visit",
+      "role": "orchestrator | phase | support",
+      "lane": "Stable lane name",
+      "visit": 1,
+      "start": "Observed timestamp or not recorded",
+      "end": "Observed timestamp or not recorded",
+      "source": "Transcript or visit record path",
+      "detail": "Responsibility and outcome",
+      "verification": "observed",
+      "evidence": ["E1"]
+    }
+  ],
+  "events": [
+    {
+      "id": "event-1",
+      "run_id": "run-1",
+      "order": 1,
+      "label": "Named event or visit",
+      "event_type": "human | system | visit | decision | artifact | external_boundary | terminal",
+      "session_id": "session-1",
+      "actor": "Who or what acts",
+      "state_before": "Known state or not recorded",
+      "state_after": "Known state or not recorded",
+      "input_refs": ["artifact-1"],
+      "output_refs": [],
+      "relationship_ids": ["rel-1"],
+      "verification": "observed",
+      "evidence": ["E1"],
+      "note": "What this establishes"
+    }
+  ],
   "views": [
-    {"id": "architecture", "type": "architecture", "question": "What exists and who owns what?", "entities": ["component-a", "component-b"], "relationships": ["rel-1"]}
+    {"id": "architecture", "type": "architecture", "question": "What exists and who owns what?", "entities": ["component-a", "component-b"], "relationships": ["rel-1"], "groups": [{"id": "inside", "label": "System boundary", "boundary": "inside", "entities": ["component-a", "component-b"]}]},
+    {"id": "sequence", "type": "sequence", "question": "Who sends what, in what order?", "entities": ["component-a", "component-b"], "relationships": ["rel-1"], "participants": ["component-a", "component-b"], "steps": [{"order": 1, "relationship_id": "rel-1", "artifact_records": ["artifact-1"]}]},
+    {"id": "state", "type": "state", "question": "How does lifecycle state change?", "entities": [], "relationships": [], "layout": {}},
+    {"id": "run", "type": "run_walkthrough", "question": "What does one evidenced run or recipe contain?", "entities": [], "relationships": [], "run_id": "run-1", "sessions": ["session-1"], "events": ["event-1"], "artifact_records": ["artifact-1"]},
+    {"id": "continuity", "type": "continuity", "question": "What context survives, and is compaction explicitly evidenced?", "entities": [], "relationships": [], "run_id": "run-1", "sessions": ["session-1"], "events": ["event-1"], "artifact_records": ["artifact-1"]}
   ],
   "uncertainties": ["Explicit unknown or conflict"]
 }

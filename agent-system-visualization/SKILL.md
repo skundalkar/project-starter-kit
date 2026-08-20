@@ -21,15 +21,17 @@ Use `assets/canonical-model.template.json` for machine-checkable work. Read `ref
 4. Register every relationship with a class, verification status, evidence citation, and plain-language meaning. Treat chronology and causality as separate claims.
 5. Mark each statement `observed`, `inferred`, or `unknown`. Formal artifact-flow edges require observed evidence that the target actually consumes the named artifact.
 6. Validate the model with `python3 scripts/validate_model.py <model.json>`. For a compact standalone explainer, run `python3 scripts/render_model.py <model.json> <output.html>`.
-7. Select only the views that answer the user's questions:
-   - architecture/subsystem map for ownership, responsibilities, and boundaries;
-   - lifecycle/state view for triggers, state changes, waits, retries, and outcomes;
+7. Select only the views that answer the user's questions. Treat each as a first-class diagram grammar, not the same node grid with a different filter:
+   - architecture/system diagram for components, ownership, deployment boundaries, stores, and external systems;
+   - flow/sequence diagram for ordered messages, artifact handoffs, and human/system involvement across named participants;
+   - lifecycle/state diagram for legal states, triggers, waits, retries, recovery, and terminal outcomes;
    - artifact/provenance flow for formal production and consumption;
    - decision/control map for route choices, gates, uncertainty, and operator authority;
-   - run walkthrough only when ordered event evidence exists.
+   - session/run inspector only when ordered event evidence exists. Separate a real observed run from a code-derived execution recipe.
+   - continuity/session view for persisted state, handoff summaries, queue/task records, restart context, session identity, and explicit compaction evidence—or an explicit statement that the project does not preserve them.
 8. Draw separate visual layers for state visits, artifact provenance, route decisions, human/system events, and explanatory context. A view may combine layers only when edge classes remain explicit.
 9. Lead with “what this shows” and the decision-relevant takeaway. Explain every major diagram in plain language.
-10. Verify labels, contrast, narrow-width layout, keyboard interaction, and every edge against the canonical register. Report open uncertainties beside the visual.
+10. Verify labels, contrast, narrow-width layout, keyboard interaction, view navigation, and every edge against the canonical register. Report open uncertainties beside the visual.
 
 ## Visual and interaction rules
 
@@ -37,7 +39,9 @@ Use `assets/canonical-model.template.json` for machine-checkable work. Read `ref
 - Label edges by relationship class or use a legend with unmistakable line styles. Do not rely on similar colors; pair color with labels, shapes, stroke styles, or icons.
 - Show external boundaries explicitly. Distinguish human actions from system events and terminal outcomes from ordinary states.
 - Use solid lines for verified formal/control relationships, dashed lines for contextual or inferred relationships, and never let styling upgrade an uncertain claim.
-- Keep detail available for each selected entity: responsibility, start/stop reasons, inputs, outputs, decision, evidence, and meaningful handoff. Display “none evidenced” or “unknown” instead of inventing content.
+- Keep detail available for each selected entity, event, visit, or artifact: responsibility, start/stop reasons, inputs, outputs, decision, evidence, provenance, and meaningful handoff. Display “none evidenced” or “unknown” instead of inventing content.
+- In flow and run views, identify concrete payloads, records, files, folders, database entities, queues, and storage paths when evidence names them. Label conceptual or in-memory artifacts explicitly.
+- Never infer compaction from long duration, context limits, or multi-step work. Show compaction only from an explicit transcript/event record. Keep formal artifacts, persisted state, queue/task records, handoff summaries, and narrative/restart context as different provenance classes.
 - Keep diagrams compact. Prefer multiple focused views over one universal graph.
 
 ## Output contract

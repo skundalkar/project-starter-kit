@@ -19,7 +19,7 @@ RELATIONSHIP_CLASSES = {
     "explanatory_association",
 }
 NON_FORMAL_CLASSES = {"continuity_context", "explanatory_association"}
-VIEW_TYPES = {"architecture", "lifecycle", "provenance", "decision_control", "run_walkthrough"}
+VIEW_TYPES = {"architecture", "sequence", "state", "lifecycle", "provenance", "decision_control", "run_walkthrough", "continuity"}
 VERIFICATION = {"observed", "inferred", "unknown"}
 
 
@@ -72,6 +72,53 @@ def validate(model: dict) -> list[str]:
     require(None not in relationship_ids, "every relationship needs an id", errors)
     require(len(relationship_ids) == len(set(relationship_ids)), "relationship ids must be unique", errors)
 
+    artifact_ids: list[str | None] = []
+    for artifact in model.get("artifact_records", []):
+        artifact_id = artifact.get("id", "<missing>")
+        artifact_ids.append(artifact.get("id"))
+        for field in ("label", "form", "location", "persistence", "verification", "evidence", "uncertainty"):
+            require(field in artifact, f"artifact {artifact_id}: missing {field}", errors)
+        require(artifact.get("verification") in VERIFICATION, f"artifact {artifact_id}: invalid verification", errors)
+        for evidence_id in artifact.get("evidence", []):
+            require(evidence_id in evidence_ids, f"artifact {artifact_id}: unknown evidence {evidence_id}", errors)
+    require(None not in artifact_ids, "every artifact record needs an id", errors)
+    require(len(artifact_ids) == len(set(artifact_ids)), "artifact record ids must be unique", errors)
+
+    run_ids = [run.get("id") for run in model.get("runs", [])]
+    require(None not in run_ids, "every run needs an id", errors)
+    require(len(run_ids) == len(set(run_ids)), "run ids must be unique", errors)
+    session_ids: list[str | None] = []
+    for session in model.get("sessions", []):
+        session_id = session.get("id", "<missing>")
+        session_ids.append(session.get("id"))
+        require(session.get("run_id") in run_ids, f"session {session_id}: unknown run", errors)
+        require(session.get("verification") in VERIFICATION, f"session {session_id}: invalid verification", errors)
+        for field in ("label", "role", "lane", "visit", "start", "end", "source", "detail", "evidence"):
+            require(field in session, f"session {session_id}: missing {field}", errors)
+        for evidence_id in session.get("evidence", []):
+            require(evidence_id in evidence_ids, f"session {session_id}: unknown evidence {evidence_id}", errors)
+    require(None not in session_ids, "every session needs an id", errors)
+    require(len(session_ids) == len(set(session_ids)), "session ids must be unique", errors)
+    event_ids: list[str | None] = []
+    for event in model.get("events", []):
+        event_id = event.get("id", "<missing>")
+        event_ids.append(event.get("id"))
+        require(event.get("run_id") in run_ids, f"event {event_id}: unknown run", errors)
+        if event.get("session_id") is not None:
+            require(event.get("session_id") in session_ids, f"event {event_id}: unknown session", errors)
+        require(isinstance(event.get("order"), int), f"event {event_id}: order must be integer", errors)
+        require(event.get("verification") in VERIFICATION, f"event {event_id}: invalid verification", errors)
+        for field in ("label", "event_type", "actor", "state_before", "state_after", "input_refs", "output_refs", "evidence", "note"):
+            require(field in event, f"event {event_id}: missing {field}", errors)
+        for ref in [*event.get("input_refs", []), *event.get("output_refs", [])]:
+            require(ref in artifact_ids, f"event {event_id}: unknown artifact ref {ref}", errors)
+        for rel_id in event.get("relationship_ids", []):
+            require(rel_id in relationship_ids, f"event {event_id}: unknown relationship {rel_id}", errors)
+        for evidence_id in event.get("evidence", []):
+            require(evidence_id in evidence_ids, f"event {event_id}: unknown evidence {evidence_id}", errors)
+    require(None not in event_ids, "every event needs an id", errors)
+    require(len(event_ids) == len(set(event_ids)), "event ids must be unique", errors)
+
     for view in model.get("views", []):
         view_id = view.get("id", "<missing>")
         require(view.get("type") in VIEW_TYPES, f"view {view_id}: invalid type", errors)
@@ -80,6 +127,14 @@ def validate(model: dict) -> list[str]:
             require(entity_id in entity_ids, f"view {view_id}: unknown entity {entity_id}", errors)
         for rel_id in view.get("relationships", []):
             require(rel_id in relationship_ids, f"view {view_id}: unknown relationship {rel_id}", errors)
+        for artifact_id in view.get("artifact_records", []):
+            require(artifact_id in artifact_ids, f"view {view_id}: unknown artifact record {artifact_id}", errors)
+        for event_id in view.get("events", []):
+            require(event_id in event_ids, f"view {view_id}: unknown event {event_id}", errors)
+        for session_id in view.get("sessions", []):
+            require(session_id in session_ids, f"view {view_id}: unknown session {session_id}", errors)
+        for step in view.get("steps", []):
+            require(step.get("relationship_id") in relationship_ids, f"view {view_id}: step has unknown relationship", errors)
 
     return errors
 

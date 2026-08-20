@@ -62,12 +62,38 @@ Formal edges must be `observed` and cite evidence. Inferred chronology does not 
 Choose views by decision question, not by a default timeline:
 
 - “What exists and who owns what?” → architecture/subsystem map.
+- “Which participant sends what, in what order?” → flow/sequence diagram.
 - “How does work begin, pause, branch, and end?” → lifecycle/state view.
 - “Where did this output come from?” → artifact/provenance flow.
 - “Why did the system choose or block this action?” → decision/control map.
-- “What happened in this particular run?” → ordered run walkthrough, only with event evidence.
+- “What happened in this particular session/run?” → run inspector, only with ordered event evidence.
+- “What context survived a handoff or restart, and was compaction recorded?” → continuity/session view.
 
 Use separate views when combining them would blur classes. A run walkthrough is optional and never substitutes for the canonical model.
+
+Architecture, sequence, and state views are different visual grammars:
+
+- Architecture groups components inside explicit system/deployment boundaries and places external actors or services outside them. It must not imply execution order.
+- Sequence uses named participant lanes and an ordered message/event ledger. Every message that implies a handoff must cite a registered relationship; adjacency alone is not an edge.
+- State uses durable state nodes and registered state/terminal transitions. Do not put processing components into a state diagram merely because they run during a state.
+- Provenance follows named artifact records through production, persistence, transformation, and formal consumption.
+- Run inspection separates sessions, repeated visits, human events, system events, artifacts, decisions, and terminal outcomes. Repeated visits remain distinct records even when they enter the same state or subsystem.
+
+If runtime evidence is unavailable, a code-derived ordered path may be shown as an **implemented execution recipe**. It must not have observed timestamps, session IDs, or run claims.
+
+## Artifact and run records
+
+Use an artifact record when an implementation names a concrete inspectable object. Record its form (`file`, `folder`, `database_entity`, `api_payload`, `queue_record`, `state_field`, `in_memory`, or `conceptual`), exact or patterned location, persistence behavior, evidence, and uncertainty. “Conceptual” and “in memory only” are valid, useful answers.
+
+For an observed run, record persistent sessions and repeated visits separately, assigning each to a stable lane. Record ordered events with stable IDs, session/visit identity, actor/system involvement, state before/after, input/output artifact references, confidence, and source. Keep compactions, retries, waits, recoveries, human actions, and external-boundary calls as explicit events. Do not infer causality from timestamp proximity. A run inspector should show lanes/visits plus the event ledger when both are available.
+
+For every project, explicitly answer: were execution sessions/threads/runs recorded; is compaction evidenced; and how was context passed? If the repository has no such records, say so in the continuity view and distinguish the code/design execution recipe from an observed run. Never infer compaction. Treat these separately:
+
+- formal artifact: named, evidenced producer/consumer handoff;
+- persisted state: durable recovery input, not automatically a message between agents;
+- queue/task record: scheduled work with its own durability semantics;
+- handoff summary: explicit continuity artifact when named and consumed;
+- narrative/restart context: explanatory context, never a formal data-flow edge without consumption evidence.
 
 ## Diagram grammar
 
@@ -78,6 +104,8 @@ Use separate views when combining them would blur classes. A run walkthrough is 
 - actor/human event: person/event label distinct from automation
 - external system: bounded or double-outline node outside the system boundary
 - terminal outcome: terminal/capsule shape
+- sequence participant: named lane with a visible lifeline
+- event/visit: numbered marker with type and verification label
 - verified formal/control edge: solid, directional, class label
 - contextual or inferred relationship: dashed, directional only if direction is evidenced
 - uncertainty: warning marker or explicit “unknown,” not a faint pseudo-edge
@@ -107,3 +135,5 @@ Before delivery, ask:
 5. Are uncertainties visible without being promoted into facts?
 6. Does each view begin with its meaning and takeaway?
 7. Can a color-blind reader distinguish all important categories?
+8. Are architecture, sequence, and state views genuinely different diagrams rather than filters over one layout?
+9. Does every concrete artifact reference say whether it is persisted, in memory, a payload, or conceptual?
