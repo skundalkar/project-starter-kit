@@ -27,7 +27,7 @@ Use `assets/canonical-model.template.json` for machine-checkable work. Read `ref
    - lifecycle/state diagram for legal states, triggers, waits, retries, recovery, and terminal outcomes;
    - artifact/provenance flow for formal production and consumption;
    - decision/control map for route choices, gates, uncertainty, and operator authority;
-   - session/run inspector only when ordered event evidence exists. Separate a real observed run from a code-derived execution recipe.
+   - session/run inspector only when ordered event evidence exists. Separate a real observed run from a code-derived execution recipe. When visit start/end evidence exists, prefer the `run_dashboard` grammar: a horizontal time axis, one lane per state family, repeated visit blocks whose widths encode duration, separate artifact rows, explicit human/system/terminal lanes, and only classified handoff ribbons.
    - continuity/session view for persisted state, handoff summaries, queue/task records, restart context, session identity, and explicit compaction evidence—or an explicit statement that the project does not preserve them.
 8. Draw separate visual layers for state visits, artifact provenance, route decisions, human/system events, and explanatory context. A view may combine layers only when edge classes remain explicit.
 9. Lead with “what this shows” and the decision-relevant takeaway. Explain every major diagram in plain language.
@@ -43,6 +43,7 @@ Use `assets/canonical-model.template.json` for machine-checkable work. Read `ref
 - In flow and run views, identify concrete payloads, records, files, folders, database entities, queues, and storage paths when evidence names them. Label conceptual or in-memory artifacts explicitly.
 - Never infer compaction from long duration, context limits, or multi-step work. Show compaction only from an explicit transcript/event record. Keep formal artifacts, persisted state, queue/task records, handoff summaries, and narrative/restart context as different provenance classes.
 - Keep diagrams compact. Prefer multiple focused views over one universal graph.
+- Do not reduce a richly evidenced run to cards. For GraphRun-like ledgers—or any system with timed visits, durable artifacts, and event records—make the session dashboard a first-class view beside architecture, sequence, and lifecycle. Provide run selection and timeline/artifact focus controls when they materially help.
 
 ## Output contract
 

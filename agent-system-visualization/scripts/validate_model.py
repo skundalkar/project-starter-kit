@@ -19,7 +19,7 @@ RELATIONSHIP_CLASSES = {
     "explanatory_association",
 }
 NON_FORMAL_CLASSES = {"continuity_context", "explanatory_association"}
-VIEW_TYPES = {"architecture", "sequence", "state", "lifecycle", "provenance", "decision_control", "run_walkthrough", "continuity"}
+VIEW_TYPES = {"architecture", "sequence", "state", "lifecycle", "provenance", "decision_control", "run_walkthrough", "run_dashboard", "continuity"}
 VERIFICATION = {"observed", "inferred", "unknown"}
 
 

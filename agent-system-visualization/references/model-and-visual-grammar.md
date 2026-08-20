@@ -67,6 +67,7 @@ Choose views by decision question, not by a default timeline:
 - “Where did this output come from?” → artifact/provenance flow.
 - “Why did the system choose or block this action?” → decision/control map.
 - “What happened in this particular session/run?” → run inspector, only with ordered event evidence.
+- “When did each state visit occur, what did it consume, and what crossed to the next visit?” → time-scaled run dashboard when start/end evidence exists.
 - “What context survived a handoff or restart, and was compaction recorded?” → continuity/session view.
 
 Use separate views when combining them would blur classes. A run walkthrough is optional and never substitutes for the canonical model.
@@ -80,6 +81,20 @@ Architecture, sequence, and state views are different visual grammars:
 - Run inspection separates sessions, repeated visits, human events, system events, artifacts, decisions, and terminal outcomes. Repeated visits remain distinct records even when they enter the same state or subsystem.
 
 If runtime evidence is unavailable, a code-derived ordered path may be shown as an **implemented execution recipe**. It must not have observed timestamps, session IDs, or run claims.
+
+### Time-scaled run dashboard
+
+Use `run_dashboard` when evidence contains visit start/end times plus named artifacts or events. This is the reusable grammar proven by the GraphRun visualization—not a GraphRun-specific phase list.
+
+- Put one state-family lane per recurring phase and preserve each visit (`V1`, `V2`, …) as its own time-width block.
+- Add explicit human, system/compaction, external-boundary, and terminal lanes. Never infer compaction or event time; if exact time is absent, say so rather than placing an apparently exact marker.
+- Put artifacts in compact rows below the visit timeline. Position a produced artifact at its evidenced creation/end point and connect it only to visits that formally consume it.
+- Give all ordinary formal artifact handoffs one subdued base style. Use a distinct dashed style only for terminal/non-consumption routes. Offset fan-out curves so overdraw does not imply extra importance.
+- Let the chart use the browser width with horizontal scrolling as fallback. Keep phase blocks stronger than handoff ribbons.
+- Provide a detail inspector for visits, artifacts, events, and handoffs. A visit detail must answer why it started, why it stopped, its inputs/outputs, route, evidence, and what the next participant knew.
+- For multiple runs, allow combined and per-run inspection. Compress inactive gaps only when they are marked as compressed; never draw restart context as a formal cross-run artifact edge.
+
+If visit timing is absent but ordered events exist, use `run_walkthrough`. If neither exists, use a lifecycle/recipe view and state that no observed run record is preserved.
 
 ## Artifact and run records
 
