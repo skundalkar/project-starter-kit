@@ -157,6 +157,29 @@ Describe the visual quality, interaction behavior, wireframes, diagrams, Product
 
 Write behavior-first scenarios from the outside in. Start with a user-visible fixture and outcome, then identify service/component contracts and internal unit coverage needed to prove it.
 
+## Required BDD Sequence
+
+For every new or changed observable behavior, implementation must follow this order:
+
+```text
+representative full-flow scenario
+-> scenario red for the intended missing behavior
+-> verify the red failure message and environment
+-> mechanistic red / verified-red / green slices
+-> scenario green
+-> broader regression and operating-layer proof
+```
+
+- Scenario red before implementation: Required
+- Representative input or fixture:
+- Outside-observable outcome:
+- Expected missing-behavior failure:
+- Red command and evidence location:
+- Mechanistic red/green evidence location:
+- Final scenario-green command and evidence location:
+
+An already-green test is regression coverage, not intended-red evidence. If the scenario cannot run or is red for the wrong reason, implementation is blocked.
+
 ## Risk-Surface Validation Plan
 
 | Risk surface | Likely failure | Proof method | Fixture/scenario | Observable pass | False-positive success to prevent | Owner/stage |

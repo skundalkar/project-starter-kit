@@ -17,11 +17,14 @@ Use this skill when you want Codex to:
 
 1. Read the approved Project Starter Kit artifacts, specification, plan, and tasks.
 2. Map each approved behavior and critical risk to implementation and verification work.
-3. Start with a user-visible Given/When/Then scenario.
-4. Confirm the scenario is red because the behavior is missing or wrong, not because setup is broken.
-5. Implement from the outside in: acceptance behavior, component contracts, then focused internals.
-6. Run proof that matches the risk surface, including the real operating layer when needed.
-7. Record what is proven, what is not, and the current delivery state.
+3. Start with a user-visible Given/When/Then scenario that drives representative input through a full run or flow and asserts the outside-observable result.
+4. Run it before production implementation and confirm it is red because the behavior is missing or wrong, not because the test, fixture, environment, or setup is broken.
+5. Treat an already-green new test as invalid intended-red evidence; strengthen it until it detects the missing behavior.
+6. Implement from the outside in using mechanistic red/verified-red/green slices until the scenario becomes green.
+7. Run proof that matches the risk surface, including the real operating layer when needed.
+8. Record the scenario-red evidence, mechanistic sequence, final scenario-green evidence, broader checks, and current delivery state.
+
+Red before green is mandatory for every new or changed observable behavior. If the representative scenario cannot run, implementation is blocked rather than allowed to proceed on unit tests or inspection alone.
 
 ## What's in this folder
 
@@ -39,6 +42,19 @@ The main artifact is a compact Build & Proof trace. It answers:
 - Did the acceptance test fail for the right reason before the fix?
 - What component and operating-layer proof ran?
 - What evidence exists, and what remains unproved?
+
+### Evidence you should expect from every behavioral dev run
+
+- scenario test ID/path and the representative fixture or input
+- outside-observable outcome asserted by the scenario
+- exact scenario-red command and concise failure excerpt
+- confirmation that the fixture/environment was valid and the behavior—not the test harness—was missing or wrong
+- evidence that production implementation started only after valid scenario red
+- each mechanistic test's red command, verified failure reason, smallest implementation slice, and green result
+- final scenario-green command and observable result
+- operating-layer and broader regression proof
+
+A final green test count without the preceding red evidence is insufficient.
 
 ### Who consumes the outputs
 

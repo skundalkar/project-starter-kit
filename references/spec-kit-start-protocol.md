@@ -134,7 +134,7 @@ Before task generation, maintain this mapping in `build-brief.md`, the plan, or 
 Approved behavior or critical risk | Spec/plan location | Task | Verification task or check
 ```
 
-Start verification from the outside in: user-visible acceptance scenario, then service/component contract checks, then internal unit coverage. For operating flows, include a task that verifies the actual orchestrator/runtime boundary rather than only its underlying commands.
+Start verification from the outside in. For every new or changed observable behavior, task the implementation sequence explicitly: run a representative full-flow scenario red before production code; verify the failure is caused by the intended missing behavior; run each mechanistic test red and verify its reason before the smallest implementation slice; repeat until the outside scenario is green; then run broader regression and operating-layer proof. An already-green new test is not intended-red evidence, and an unrunnable or invalid-red scenario blocks implementation. For operating flows, verify the actual orchestrator/runtime boundary rather than only its underlying commands.
 
 ## Intermediate Specialist Review Quality Gate
 

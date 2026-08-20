@@ -43,17 +43,19 @@ Use only applicable surfaces. Prefer the smallest proof that would fail if the r
 
 ### 3. Work Outside To Inside
 
-For each behavior:
+For every new or changed observable behavior, enforce this sequence:
 
-1. Write a user-visible Given/When/Then scenario from a concrete fixture.
-2. Run it before implementation and observe red.
-3. Verify red occurred for the intended missing or wrong behavior, not setup, syntax, dependency, fixture, permission, or environment failure.
-4. Define the service/component contracts needed to satisfy the scenario.
-5. Add focused unit checks for important internal decisions.
-6. Implement the smallest coherent change.
-7. Rerun the focused scenario, then relevant component checks, then the broader gate.
+1. Write one or more user-visible Given/When/Then scenario tests that drive representative inputs through a full run or operating flow and assert the observable outcome at the outside boundary.
+2. Run the scenario tests before writing or changing production implementation code. They must be red.
+3. Read the failure output and verify that each scenario is red because the approved behavior is missing or wrong, not because of setup, syntax, dependencies, fixtures, permissions, assertions, or an unavailable environment.
+4. If a scenario is already green or fails for the wrong reason, stop. Correct or strengthen the test and fixture until it produces valid red evidence. An already-green test is regression coverage, not proof of a new behavior.
+5. Derive the next service or component contract and write the smallest mechanistic test needed for that slice.
+6. Run the mechanistic test, observe red, and verify its failure reason before changing production code for that slice.
+7. Implement the smallest change that makes the mechanistic test green.
+8. Repeat the mechanistic red/verified-red/green loop until the outside-in scenario test becomes green.
+9. Rerun the scenario tests, relevant component checks, operating-layer proof, and broader regression gate.
 
-If a new test passes before the change, show why it is still meaningful or strengthen it until it detects the missing behavior.
+Red before green is mandatory. Do not start production implementation without valid scenario-red evidence. Do not start a mechanistic implementation slice without valid mechanistic-red evidence. If the required scenario cannot run in the real test environment, report the work as blocked; do not substitute isolated unit tests or implementation by inspection.
 
 ### 4. Prove The Operating Layer
 
@@ -82,7 +84,8 @@ Keep evidence concise and reproducible. Never report a local commit as pushed, a
 Before completion:
 
 - confirm all approved behaviors and critical risks are mapped
-- confirm intended-red evidence exists for new behavior tests when practical
+- confirm valid scenario-red evidence predates production implementation for every new or changed observable behavior
+- confirm each mechanistic implementation slice has red/verified-red/green evidence and the final outside-in scenario is green
 - run relevant regression and quality gates
 - inspect user-visible behavior when the change has a UI or workflow
 - report what is proven, what remains unproven, and the exact next action
@@ -95,7 +98,8 @@ Report:
 
 - behavior implemented
 - risk surfaces selected
-- intended-red result
+- representative scenario, outside-observable assertion, and scenario-red command/failure/reason
+- mechanistic red/verified-red/green sequence and final scenario-green result
 - focused and broader validation results
 - operating-layer proof, if required
 - trace/evidence location

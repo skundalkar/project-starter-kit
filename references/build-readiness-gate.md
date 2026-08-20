@@ -37,6 +37,9 @@ Set one or more:
 - The operating flow and execution-boundary map identify real, mocked, manual, and deferred behavior.
 - Every critical risk surface has a fixture/scenario, observable pass condition, and false-positive success state to prevent.
 - Acceptance scenarios are behavior-first and outside-to-inside: user-visible behavior first, then service/component contracts, then internal unit coverage.
+- The build brief requires a representative full-flow scenario to be red for the intended missing behavior before production implementation begins.
+- The verification plan records scenario-red commands/failure evidence, mechanistic red/verified-red/green slices, final scenario green, and broader proof.
+- An unrunnable scenario or red failure caused by the test harness is an implementation blocker, not permission to proceed with unit tests alone.
 - Edge states are listed.
 - Privacy and safety requirements are explicit when sensitive data exists.
 - Repo status is known.
