@@ -6,7 +6,7 @@ Project Starter Kit helps a user turn a rough project idea into a clear, build-r
 
 When invoked, do not build the product yet. Do not create a repository during initial discovery. Do not generate a formal specification yet. Repository setup is handled by the Repo & Continuity Gate once starter artifacts exist or implementation is about to begin.
 
-First, help the user discover what they are actually trying to build. Treat the user's first product noun as a hypothesis until the operating model is clear.
+First, help the user discover whether there is a credible opportunity and which operating model deserves design effort. Treat the user's first sentence and product noun as hypotheses, never as enough input for requirements or build work.
 
 ## Invocation
 
@@ -27,9 +27,26 @@ Start with one simple question:
 
 Do not ask for every detail at once.
 
+## Opportunity & Evidence Gate
+
+After the opening idea, follow `opportunity-evidence-gate.md` before product strategy, Product Design, workflow definition, requirements, or specification.
+
+Act as an evidence-led product guide:
+
+- surface material assumptions and their consequences
+- inventory public, paid/licensed, internal, and missing sources
+- record access, permission, cost, provenance, freshness, coverage, structural shape, quality, uncertainty, and privacy/trust limits
+- inspect comparable operating models only when they change credible directions
+- obtain and profile a small, traceable research sample when it will materially reduce uncertainty and is permitted
+- present 2-3 evidence-grounded operating-model options, recommend a first wedge, and ask the user to decide
+
+End with one gate outcome: proceed with a chosen direction; targeted research spike; narrow or reframe; stop or defer.
+
+Do not buy data, download a large dataset, request broad production access, or silently decide an irreversible user-value question during this gate.
+
 ## Framework Source
 
-Use `framework-map.md` as the organizing model for discovery.
+Use `framework-map.md` as the organizing model for discovery, following its stage order: Opportunity & Evidence first, then Product Strategy and Product Design, then the Behavioral Contract and prototype proof.
 
 Do not recite the framework to the user unless they ask. Use it internally to track what is known, what is missing, and what should be asked next.
 
@@ -61,46 +78,46 @@ After meaningful progress, summarize briefly:
 
 Keep the summary short.
 
-## Readiness Check
-
-When enough information exists, say:
-
-"I think we have enough to draft the first product brief. Before I do that, here is the current product shape."
-
-Then summarize the readiness checklist from `readiness-check.md`.
-
-Ask for approval before generating formal artifacts.
-
 ## Product Design Gate
 
-Before the example prototype pass, or during it as soon as product/design uncertainty appears, use `product-design-gate.md` when the initial product shape may be wrong.
+After the user chooses an Opportunity & Evidence Gate direction, use `product-design-gate.md` to turn it into visual or structural concepts, an interaction and operating model, Behavioral Contract implications, and prototype questions.
 
 Trigger this gate when:
 
-- the user asks for a dashboard, monitor, tracker, assistant, report, workflow, or app but the decision job is unclear
+- the approved direction needs a dashboard, monitor, tracker, assistant, report, workflow, app, or other surface
 - metrics, scores, categories, thresholds, labels, or evidence may be hard to interpret
 - the product is visual, analytics-heavy, workflow-heavy, AI-output-heavy, trust/safety-sensitive, or interaction-heavy
 - the user expresses confusion about what a number, chart, screen, or output is supposed to mean
-- outside examples or mature product patterns could change the vocabulary or operating model
+- a visual concept or prototype exposes a concrete new evidence gap
 
 During this gate:
 
-- clarify the first user/job/outcome and strategic wedge before choosing the surface
-- challenge the initial noun with 3-5 alternative operating models
+- consume the approved first user/job/outcome, strategic wedge, operating model, and evidence constraints
+- create or request 2-3 competing visual or structural concepts within that direction
 - ask what the user should infer, trust, compare, review, or do next
-- run a lightweight market/pattern scan when current public examples could improve the model
-- create or request 2-3 competing visual or structural concepts for visual/decision-support products
 - map signal -> driver -> evidence -> interpretation
+- define the interaction and operating flow and draft the Behavioral Contract
+- reopen only focused research when a concept exposes a specific evidence gap
 - record the chosen operating model and user critique in `prototype-pass.md`
 - check the chosen model against the behavioral contract
 
-Do not proceed to final starter artifacts until the Product Design Gate has passed or the user explicitly skips it.
+Do not repeat the broad research-and-options pass. Do not proceed to final starter artifacts until the Product Design Gate has passed or the user explicitly skips it.
+
+## Behavioral Contract
+
+After selecting the interaction and operating model and before approving the prototype proof, summarize observable behavior:
+
+```text
+Trigger | Preconditions | Input | State transitions | Output | User controls | Failure/fallback | Must-not-happen
+```
+
+If the request changes an existing system, follow `behavioral-delta-review.md` and show the current-system impact preview before treating the requirement as understood.
 
 ## Required Example Prototype Pass
 
 Before generating final starter artifacts, run an example prototype pass.
 
-The prototype pass must use one concrete input, scenario, file, sample data set, sketch, or workflow that represents the product's first real use.
+The prototype pass must use one concrete input, scenario, file, stable fixture, sketch, or workflow that represents the product's first real use. It may combine visualizations with a concrete operating walkthrough.
 
 Do not treat this as implementation. Treat it as a fast reality check before formalizing the product.
 
@@ -111,6 +128,8 @@ Ask the user for or help create the example:
 - For a writing product, use a messy source note and draft the expected output.
 - For a workflow product, walk through one realistic case step by step.
 - For an AI product, manually simulate the AI response before assuming automation.
+
+Use real data only when access and use are permitted. Otherwise use an explicitly mocked, synthetic, or preferably anonymized build fixture. Do not silently reuse the earlier research sample: that sample decided feasibility, while the stable fixture supports mocks, walkthroughs, acceptance scenarios, and validation.
 
 For visual, spatial, creative, AI-output, design-heavy, or interaction-heavy products, do not treat this pass as optional. Create or request a fast visual/output artifact unless the user explicitly skips it.
 
@@ -136,19 +155,19 @@ During the pass, identify:
 - the end-to-end operating flow, including visible intermediate states
 - the execution-boundary map, including real, mocked, manual, and deferred behavior
 
-## Behavioral Contract
-
-Before formal artifacts, summarize observable behavior:
-
-```text
-Trigger | Preconditions | Input | State transitions | Output | User controls | Failure/fallback | Must-not-happen
-```
-
-If the request changes an existing system, follow `behavioral-delta-review.md` and show the current-system impact preview before treating the requirement as understood.
-
 Do not proceed to `project-brief.md`, `prototype-pass.md`, or `build-brief.md` until the example prototype pass has either been completed or the user explicitly chooses to skip it.
 
-If product/design uncertainty appears during the pass, run or rerun `product-design-gate.md`; also follow `triggered-tools-protocol.md` when tool or review triggers apply before formalizing the build brief.
+If product/design uncertainty appears during the pass, run or rerun `product-design-gate.md`. Reopen the Opportunity & Evidence Gate only for a focused evidence gap exposed by the prototype. Also follow `triggered-tools-protocol.md` when tool or review triggers apply before formalizing the build brief.
+
+## Readiness Check
+
+When the Opportunity & Evidence Gate, Product Design Gate, Behavioral Contract, and prototype proof have passed or have explicit user-approved deferrals, say:
+
+"I think we have enough to draft the first product brief. Before I do that, here is the current product shape."
+
+Then summarize the readiness checklist from `readiness-check.md`.
+
+Ask for approval before generating formal artifacts.
 
 ## Repo & Continuity Gate
 

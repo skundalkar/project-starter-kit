@@ -2,7 +2,7 @@
 
 Project Starter Kit is a Codex skill for starting new product ideas cleanly before implementation begins.
 
-Use it when you have a rough idea but do not yet have a clear product brief, MVP boundary, prototype challenge, or build-ready handoff.
+Use it when you have a rough idea but do not yet have evidence for a credible operating model, a clear product brief, an MVP boundary, a prototype challenge, or a build-ready handoff.
 
 ## What It Helps You Do
 
@@ -15,7 +15,7 @@ I have an idea, but it is still fuzzy.
 to:
 
 ```text
-I know what this product is, who it is for, what the MVP should include, what assumptions were tested, and what a build agent should make next.
+I know which opportunity direction the evidence supports, who this product is for, what the MVP should include, what assumptions were tested, and what a build agent should make next.
 ```
 
 It is designed to clarify the product before Spec Kit, technical planning, tasks, or application code. Repository setup is handled by an explicit Repo & Continuity Gate once starter artifacts exist or implementation is about to begin.
@@ -32,6 +32,9 @@ Then describe your idea in a messy way. A sentence, paragraph, rough problem, or
 
 The skill will interview you lightly, one or two questions at a time. It will help clarify:
 
+- which assumptions are hidden in the idea
+- which public, paid/licensed, internal, or missing evidence sources matter
+- which 2-3 operating models are credible and which first wedge is recommended
 - what the product is
 - who it is for
 - the first real-use situation
@@ -52,15 +55,29 @@ prototype-pass.md
 build-brief.md
 ```
 
-`project-brief.md` captures the product truth: user, promise, situation, transformation, product rules, MVP boundary, and future vision.
+`project-brief.md` captures the Opportunity & Evidence Gate decision and product truth: evidence basis, user, promise, situation, transformation, product rules, MVP boundary, and future vision.
 
-`prototype-pass.md` captures a concrete example walkthrough used to test assumptions before formal planning.
+`prototype-pass.md` captures how Product Design consumed that direction, the Behavioral Contract, a stable data/fixture boundary, and a concrete example walkthrough used to test assumptions before formal planning.
 
-`build-brief.md` is the implementation handoff. It explains what to build, what not to invent, expected user flow, data direction, AI or automation expectations, acceptance criteria, and validation expectations.
+`build-brief.md` is the implementation handoff. It explains what to build, what not to invent, approved source constraints, stable build fixtures, expected user flow, data direction, AI or automation expectations, acceptance criteria, and validation expectations.
+
+## Opportunity & Evidence Gate
+
+The first sentence is treated as a hypothesis, not as requirements. Before strategy or Product Design, the skill:
+
+- surfaces assumptions and their consequences
+- maps public, paid/licensed, internal, and missing evidence sources
+- profiles a small, traceable research sample when useful and permitted
+- inspects comparable operating models only when they change credible directions
+- presents 2-3 evidence-grounded options, recommends a first wedge, and asks the user to decide
+
+The outcome is to proceed, run a targeted research spike, narrow or reframe, or stop/defer. Evidence and decisions stay in the three starter artifacts and their Decision Ledger; the gate does not create another source of truth.
+
+Research samples decide feasibility. Later stable, preferably anonymized build fixtures support mocks, walkthroughs, acceptance scenarios, and validation.
 
 ## Prototype Pass
 
-Before formalizing the build brief, the skill asks for or helps create one concrete example.
+After the Opportunity & Evidence direction and Product Design concept are chosen and the Behavioral Contract is explicit, the skill asks for or helps create one concrete example.
 
 Examples:
 
@@ -71,7 +88,7 @@ Examples:
 - a manual AI response simulation for an AI-first product
 - a wireframe or block diagram for an interaction-heavy product
 
-The goal is to catch weak assumptions early, before code is written.
+The goal is to catch weak assumptions early, before code is written. The proof can combine visualizations with a concrete operating walkthrough and must use permitted real data or an explicitly mocked/fixture data set.
 
 For visual, spatial, creative, AI-output, or interaction-heavy products, this prototype
 pass is expected, not merely nice to have. The skill should help create a quick visual or

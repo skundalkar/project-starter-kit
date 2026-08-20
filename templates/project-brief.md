@@ -13,6 +13,41 @@
 - One-sentence promise:
 - Product thesis:
 
+## Opportunity & Evidence Gate
+
+### Opening Hypothesis
+
+- One-sentence idea in the user's words:
+- Intended user, trigger, and outcome:
+- Initial product noun or mechanism:
+- Material assumptions and consequences if wrong:
+
+### Evidence Source Inventory
+
+| Source | Public / paid-licensed / internal / missing | Access | License/permission | Cost | Provenance | Freshness | Coverage | Structural shape/entities/fields | Quality/uncertainty | Privacy/trust limits |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+
+### Research Sample
+
+- Sample used or reason none was appropriate:
+- Source, retrieval date, access terms, and sampling method:
+- Shape, quality, missingness, bias, and limitations:
+- What it supports:
+- What it does not support:
+
+### Evidence-Grounded Options
+
+| Option | Operating model | Evidence basis | Benefits | Constraints | Assumptions | First wedge | Decision needed |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+
+### Gate Decision
+
+- Outcome: Proceed / Targeted research spike / Narrow or reframe / Stop or defer
+- Recommended direction and consequence:
+- User decision and approval:
+- Evidence gap that could reverse the decision:
+- Comparable operating-model patterns that changed or confirmed the direction:
+
 ## Product Strategy
 
 - First user/job/outcome:
@@ -82,16 +117,6 @@ Name the concrete outputs the product creates.
 - Trust, compliance, or safety blocker:
 - Validation test before paid build:
 
-## Competitive / Comparable Products
-
-- Comparable products or patterns:
-- What mature products make easy:
-- What mature products make heavy, risky, or confusing:
-- Patterns to borrow:
-- Patterns to avoid:
-- Differentiation:
-- Product decisions changed:
-
 ## Project Scale And Repository Continuity
 
 - Project scale:
@@ -125,6 +150,11 @@ Describe the first journey, main modes, and interface direction.
 ## Intelligence And Data
 
 Describe what the product needs to know, infer, remember, calculate, detect, generate, or explain.
+
+- Approved sources and access/permission constraints:
+- Evidence limits and unsupported claims:
+- Research sample location and permitted use:
+- Later build-fixture requirement:
 
 ## Trust And Control
 

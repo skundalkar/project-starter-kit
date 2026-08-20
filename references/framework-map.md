@@ -2,7 +2,53 @@
 
 Use this map to organize product discovery. The user should not need to see this whole structure during normal conversation.
 
-## 1. Product Meaning
+Follow the stages in order. Do not use later strategy, design, requirements, or build questions to skip the Opportunity & Evidence Gate.
+
+## 1. Opportunity Hypothesis
+
+Treat the user's one-sentence idea and first product noun as hypotheses.
+
+Capture:
+
+- opening idea in the user's words
+- intended user, trigger, and outcome, if known
+- proposed mechanism or product noun
+- assumptions about value, data, access, workflow, trust, and behavior change
+- consequence if each material assumption is wrong
+- irreversible user-value judgments that require an explicit user decision
+
+## 2. Evidence And Source Map
+
+Capture public, paid/licensed, internal, and missing sources.
+
+For each material source, capture:
+
+- access and technical availability
+- license, permission, and acceptable use
+- cost
+- provenance and retrieval date
+- freshness and coverage
+- structural shape: entities, fields, relationships, identifiers, granularity, and formats
+- quality, missingness, bias, and uncertainty
+- privacy and trust limits
+- what the evidence supports and does not support
+
+When useful and permitted, profile a small traceable research sample. Do not acquire large or paid datasets prematurely.
+
+## 3. Evidence-Grounded Options And Gate Decision
+
+Capture:
+
+- comparable operating-model patterns that changed or confirmed a direction
+- 2-3 credible operating-model options grounded in the evidence
+- benefits, constraints, assumptions, and first wedge for each option
+- lead-agent recommendation and strongest alternative
+- user decision needed
+- outcome: proceed; targeted research spike; narrow/reframe; stop/defer
+- Decision Ledger entry and affected starter-artifact sections
+- distinction between the feasibility research sample and any later stable, preferably anonymized build fixture
+
+## 4. Product Meaning
 
 Clarify what the product is really about.
 
@@ -15,7 +61,7 @@ Capture:
 - why this should exist
 - whether the name is intentional or only a placeholder
 
-## 2. User And Situation
+## 5. User And Situation
 
 Identify who needs the product and the concrete moment when they need it.
 
@@ -31,7 +77,7 @@ Capture:
 
 If no real situation exists yet, construct one common case, one messy case, and one high-stakes case.
 
-## 3. Current State
+## 6. Current State
 
 Describe what is true before the product helps.
 
@@ -42,7 +88,7 @@ Capture:
 - what breaks down today
 - what the user cannot see, decide, express, organize, create, or trust yet
 
-## 4. Desired State
+## 7. Desired State
 
 Describe what should be true after the product works.
 
@@ -53,7 +99,7 @@ Capture:
 - emotional, practical, creative, financial, operational, or learning change
 - what "this helped" means in concrete terms
 
-## 5. Core Method
+## 8. Core Method
 
 Clarify how the product moves the user from current state to desired state.
 
@@ -71,7 +117,7 @@ Capture:
 - collaboration
 - review or approval behavior
 
-## 6. Core Loop
+## 9. Core Loop
 
 Define the repeated interaction pattern that makes the product useful.
 
@@ -82,7 +128,7 @@ Capture:
 - what the user reviews, edits, chooses, or repeats
 - what gets saved or improved over time
 
-## 7. Product Artifacts
+## 10. Product Artifacts
 
 Name the concrete outputs the product creates.
 
@@ -105,21 +151,21 @@ Examples:
 
 Prefer named artifacts over vague feature labels.
 
-## 8. Product Operating Model
+## 11. Product Operating Model
 
-Challenge the user's first product noun and identify what product model actually fits the job.
+Consume the operating-model direction selected by the Opportunity & Evidence Gate and identify how Product Design should make it understandable and actionable.
 
 Capture:
 
 - initial noun or requested artifact, such as dashboard, app, assistant, report, monitor, or tracker
-- alternative models considered, such as anomaly detector, triage queue, investigation console, command center, evidence review tool, workflow tool, or report
+- evidence-grounded alternatives considered and why the selected direction won
 - primary object of attention: user, event, anomaly, task, entity, trend, evidence, document, asset, or workflow
 - primary user inference or decision
 - signal-to-evidence path
 - what would make the interface misleading
-- vocabulary borrowed or rejected from outside product patterns
+- vocabulary borrowed or rejected from the earlier comparable operating-model scan
 
-## 9. Experience Flow
+## 12. Experience Flow
 
 Describe the main user journey.
 
@@ -133,7 +179,7 @@ Capture:
 - completion moment
 - return or reuse behavior
 
-## 10. UI Direction
+## 13. UI Direction
 
 Clarify what kind of interface best serves the product.
 
@@ -145,7 +191,7 @@ Capture:
 - whether the product should feel guided, exploratory, operational, creative, analytical, or calm
 - where visual representations, wireframes, diagrams, or prototypes are needed before implementation
 
-## 11. Intelligence And Data
+## 14. Intelligence And Data
 
 Define what the product needs to know, infer, remember, calculate, detect, generate, or explain.
 
@@ -160,8 +206,10 @@ Capture:
 - uncertainty and confidence
 - fallbacks when automation is weak
 - privacy or sensitivity concerns
+- approved source constraints and evidence limits from the Opportunity & Evidence Gate
+- whether runtime data is real, mocked, manual, or deferred
 
-## 12. Trust And Control
+## 15. Trust And Control
 
 Identify where the user needs agency.
 
@@ -176,7 +224,7 @@ Capture:
 - source or evidence visibility
 - safety, legal, financial, medical, privacy, or emotional risk boundaries
 
-## 13. MVP Boundary
+## 16. MVP Boundary
 
 Separate the smallest useful version from the full vision.
 
@@ -190,7 +238,7 @@ Capture:
 - simulated or manual fallbacks
 - future capabilities to preserve without building now
 
-## 14. Feasibility Challenge
+## 17. Feasibility Challenge
 
 Stress-test the product before implementation.
 
@@ -200,10 +248,25 @@ Capture:
 - platform or permission constraints
 - AI/data/API constraints
 - visual or workflow unknowns
-- what can be tested with a sketch, mockup, sample input, fake data, manual run, API check, or tiny prototype
+- what can be tested with a sketch, mockup, stable fixture, manual run, API check, or tiny prototype
 - what decision would change if the assumption fails
+- which focused evidence gap, if any, the design or prototype exposed after the Opportunity & Evidence Gate
 
-## 15. Example Prototype Pass
+## 18. Behavioral Contract
+
+Define the observable behavior after choosing an operating model and before approving the proof.
+
+Capture:
+
+- trigger and preconditions
+- input and unit of work
+- state transitions and timing/order
+- output and user controls
+- completion and failure/fallback behavior
+- behavior that must not happen
+- current-system impact preview when changing an existing system
+
+## 19. Example Prototype Pass
 
 Run one concrete example through the proposed product loop before formalizing the starter artifacts.
 
@@ -229,8 +292,10 @@ Capture:
 - which assumptions broke
 - which MVP decisions changed
 - whether a visual artifact, wireframe, sample output, or prototype should be included in the handoff
+- whether the walkthrough used permitted real data or an explicitly mocked, synthetic, or anonymized build fixture
+- how that stable build fixture differs from any earlier feasibility research sample
 
-## 16. Project Scale And Continuity
+## 20. Project Scale And Continuity
 
 Classify how durable the project is and what continuity setup is required.
 
@@ -244,7 +309,7 @@ Capture:
 - whether GitHub setup was approved, completed, or explicitly deferred
 - milestone push expectations
 
-## 17. Build Handoff
+## 21. Build Handoff
 
 Capture what a future build agent needs so it can implement without guessing.
 
@@ -261,21 +326,7 @@ Capture:
 - commit and documentation expectations
 - approval gates before implementation
 
-## 18. Behavioral Contract
-
-Define the observable behavior before implementation language hardens.
-
-Capture:
-
-- trigger and preconditions
-- input and unit of work
-- state transitions and timing/order
-- output and user controls
-- completion and failure/fallback behavior
-- behavior that must not happen
-- current-system impact preview when changing an existing system
-
-## 19. Operating Flow
+## 22. Operating Flow
 
 Map the end-to-end product path:
 
@@ -287,7 +338,7 @@ Map the end-to-end product path:
 - final artifact
 - save, reuse, or return loop
 
-## 20. Execution-Boundary Map
+## 23. Execution-Boundary Map
 
 For each component or surface, capture:
 
@@ -298,6 +349,6 @@ For each component or surface, capture:
 - data crossing the boundary
 - fallback behavior
 
-## 21. Risk-Surface Validation
+## 24. Risk-Surface Validation
 
 Capture only applicable risk surfaces, their likely failures, proof methods, fixtures, observable pass conditions, and false-positive success states.

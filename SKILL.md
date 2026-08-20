@@ -1,6 +1,6 @@
 ---
 name: project-starter-kit
-description: Start and structure a new product/project idea before implementation. Use when the user wants to begin a new project, shape a rough idea, create a product brief, run a feasibility/prototype challenge, generate a build-ready brief, or hand the result to Spec Kit for specification, planning, tasks, and implementation.
+description: Start and structure a new product/project idea before implementation. Use when the user wants to begin a project from a rough idea, test opportunity and evidence assumptions, choose a credible operating model, create a product brief, run a feasibility/prototype challenge, generate a build-ready brief, or hand the result to Spec Kit for specification, planning, tasks, and implementation.
 ---
 
 # Project Starter Kit
@@ -10,15 +10,15 @@ Project Starter Kit is a pre-build skill. It helps the user turn a rough idea in
 ## Core Workflow
 
 1. If the user says to start a new project, follow `references/start-protocol.md`.
-2. Use `references/framework-map.md` to organize discovery internally.
-3. Use `references/readiness-check.md` before producing formal artifacts.
-4. For changes to an existing system, run `references/behavioral-delta-review.md` before treating the requested behavior as understood.
-5. Run `references/product-design-gate.md` before or during the prototype pass when product strategy, product form, UI, operating model, metrics, evidence, or user inference is ambiguous.
-6. Run `references/competitive-comparable-products-lens.md` when comparable products, public examples, mature workflows, or competitor positioning could change product discovery, feature selection, onboarding, pricing, trust language, or differentiation.
-7. Run `references/health-adjacent-safety-gate.md` for wellness, healthcare, food, sleep, mood, body, accessibility, safety, financial, legal, or other high-trust products where copy, claims, privacy, or recommendations could create harm.
-8. Run `references/product-artifact-review-gate.md` after meaningful product artifacts, visual mocks, dashboards, reports, charts, generated documents, or UI prototypes create user questions, metric confusion, source-coverage concerns, or product-form uncertainty.
-9. Use `references/async-orchestration-gate.md` before major implementation, review, data, or documentation work to split critical-path work from safe parallel sidecar work.
-10. Run the required example prototype pass unless the user explicitly skips it. Record the approved behavioral contract, operating flow, and execution-boundary map.
+2. Treat the opening idea as a hypothesis. Run `references/opportunity-evidence-gate.md` before product strategy, Product Design, workflow definition, requirements, or specification.
+3. Use `references/framework-map.md` to organize discovery internally, in stage order.
+4. After an Opportunity & Evidence Gate direction is chosen, run `references/product-design-gate.md` to turn it into visual/structural concepts, an interaction and operating model, and prototype questions.
+5. Define the behavioral contract, then run the required example prototype pass unless the user explicitly skips it. Record the operating flow and execution-boundary map.
+6. Use `references/readiness-check.md` before producing formal artifacts.
+7. For changes to an existing system, run `references/behavioral-delta-review.md` before treating the requested behavior as understood.
+8. Run `references/health-adjacent-safety-gate.md` for wellness, healthcare, food, sleep, mood, body, accessibility, safety, financial, legal, or other high-trust products where copy, claims, privacy, or recommendations could create harm.
+9. Run `references/product-artifact-review-gate.md` after meaningful product artifacts, visual mocks, dashboards, reports, charts, generated documents, or UI prototypes create user questions, metric confusion, source-coverage concerns, or product-form uncertainty.
+10. Use `references/async-orchestration-gate.md` before major implementation, review, data, or documentation work to split critical-path work from safe parallel sidecar work.
 11. If triggered project-tool conditions appear, follow `references/triggered-tools-protocol.md`.
 12. Generate the three starter artifacts using:
    - `templates/project-brief.md`
@@ -40,13 +40,16 @@ For "Use Project Starter Kit. Start." or similar:
 
 - Begin with one simple question: "What are you trying to build? You can answer messily."
 - Do not ask for repo details, implementation choices, or Spec Kit setup yet.
+- Treat even a clear one-sentence idea as a hypothesis, never as sufficient input for requirements or build work.
 - Interview lightly, one or two questions at a time.
 - Track what is known and missing using the framework map.
 - Give short running summaries.
 - Always clearly state the next question, next requirement, or what is waiting on the user.
-- Treat visual, workflow, AI-output, operating-model, metric-semantics, evidence, or feasibility uncertainty as a trigger for the Product Design Gate, prototype pass, or tool/lens review; do not wait for the user to explicitly request it.
+- Act as an evidence-led product guide: surface assumptions, test them, explain their consequences, recommend a direction, and ask the user to decide when user value or an irreversible direction is at stake.
+- Run the Opportunity & Evidence Gate before strategy or design. Research source feasibility and credible operating models; do not turn the user's noun into requirements.
+- Treat visual, workflow, AI-output, metric-semantics, interaction, or prototype uncertainty as a trigger for the Product Design Gate or tool review after the opportunity direction is chosen.
 - For an existing system, show the current-system impact preview from the Behavioral Delta Review before treating the change request as understood.
-- Treat common-sounding products, crowded product categories, and user requests for market learning or visual review as triggers for the Competitive / Comparable Products Lens.
+- Inspect comparable products or operating patterns inside the Opportunity & Evidence Gate only when they can change a credible direction. Do not run a separate later comparison detour.
 - Treat health-adjacent, safety-adjacent, legal-adjacent, financial-adjacent, or body-data products as triggers for the Health-Adjacent Safety Gate before finalizing claims or implementation scope.
 - Do not accept the user's first artifact noun, such as dashboard, app, tracker, assistant, monitor, or report, as the final product model without testing what job it must do.
 - After the user sees an artifact and starts asking what numbers mean, what to infer, what action to take, whether source data is complete, or why the output feels wrong, run the Product Artifact Review Gate before continuing implementation.
@@ -109,27 +112,39 @@ Run the track in this order:
 
 Do not treat "not build ready" as a terminal answer. Report the readiness status, blockers, deferred issues, and the exact next action. Local Git may be initialized when the user asks to proceed into build and the workspace is not already a repo. Creating a GitHub remote creates external state and requires explicit user approval; default to private unless the user asks for public.
 
+## Opportunity & Evidence Gate Rule
+
+Use `references/opportunity-evidence-gate.md` after the user's initial idea and before product strategy, Product Design, workflow definition, requirements, recruiter flows, or specification.
+
+Inventory public, paid/licensed, internal, and missing sources. For material sources, record access, license or permission, cost, provenance, freshness, coverage, structural shape, quality or uncertainty, and privacy or trust limits. Obtain and profile only a small traceable research sample when it is useful and permitted; never buy data or download a large dataset prematurely.
+
+Return 2-3 credible operating-model options grounded in the research. Show benefits, constraints, assumptions, a recommended first wedge, and the user decision needed. The gate outcome must be one of: proceed with the chosen direction; run a targeted research spike; narrow or reframe; stop or defer.
+
+Record the evidence and decision in the existing three starter artifacts and Decision Ledger. Do not create a separate source of product truth. Treat research samples as feasibility evidence; later build fixtures are stable, preferably anonymized inputs for mocks, walkthroughs, tests, and validation.
+
 ## Product Design Gate Rule
 
-When the user asks for a dashboard, monitor, analytics surface, workflow, AI assistant, report, or other common product noun, treat that noun as a hypothesis.
+Run `references/product-design-gate.md` only after the Opportunity & Evidence Gate has produced an approved direction or an explicitly accepted uncertainty.
 
-Use `references/product-design-gate.md` when the real operating model could be one of several alternatives, such as anomaly detector, triage queue, investigation console, command center, evidence review tool, report, or workflow tool.
+Turn the chosen operating model into 2-3 competing visual or structural concepts, an interaction/operating flow, behavioral-contract implications, and a concrete prototype pass. Do not repeat broad source or comparable-product research.
 
-For ambiguous visual or decision-support products, compare 2-3 competing product framings or UI concepts before formalizing the build brief unless the user explicitly skips this gate.
+Reopen research only when a visual concept or prototype exposes a concrete evidence gap. Keep the spike focused on the decision the new evidence must resolve and carry the result back into the existing gate record and Decision Ledger.
 
 Record Product Design Gate decisions in `prototype-pass.md` and carry the chosen operating model into `project-brief.md` and `build-brief.md`.
 
-The gate must cover both strategy and design: who/job/outcome should be served first, and which operating model/artifact makes that job understandable and actionable. Check the chosen design against the behavioral contract.
+The gate must preserve the approved first user/job/outcome and wedge while making the operating model understandable and actionable. Check the chosen design against the behavioral contract.
 
 ## Behavioral Contract Rule
 
-During discovery, define observable behavior using:
+After choosing the operating model and before approving the smallest useful proof, define observable behavior using:
 
 ```text
 Trigger | Preconditions | Input | State transitions | Output | User controls | Failure/fallback | Must-not-happen
 ```
 
 For changes to an existing system, use `references/behavioral-delta-review.md`. A broad scope statement does not resolve unit of work, granularity, timing/order, state, controls, outputs, or completion/failure behavior.
+
+The proof may combine visualizations with one concrete operating walkthrough. Connect it to real data or an explicitly mocked/fixture data set, and keep that build fixture distinct from any earlier research sample.
 
 ## Visual Prototype Rule
 

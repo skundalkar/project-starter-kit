@@ -25,11 +25,14 @@ Set one or more:
 ## Required Checks
 
 - Product name and promise are stable.
+- Opportunity & Evidence Gate outcome, approved operating model, first wedge, and user decision are recorded.
+- Source access, permission, cost, provenance, freshness, coverage, structural shape, quality/uncertainty, and privacy/trust constraints are carried into the build brief.
 - MVP boundary is explicit.
 - Prototype pass is complete or explicitly skipped.
 - Validation plan exists or is intentionally deferred.
 - Business/acquisition hypotheses exist for consumer or commercial products.
 - Acceptance criteria include at least one fixture and expected output.
+- Build fixtures are stable and preferably anonymized or synthetic; they are not silently reused feasibility research samples.
 - The approved behavioral contract is present and unresolved behavioral deltas are explicit.
 - The operating flow and execution-boundary map identify real, mocked, manual, and deferred behavior.
 - Every critical risk surface has a fixture/scenario, observable pass condition, and false-positive success state to prevent.

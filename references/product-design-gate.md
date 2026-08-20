@@ -1,114 +1,89 @@
 # Project Starter Kit: Product Design Gate
 
+## Contents
+
+- Purpose and approved inputs
+- Core behavior
+- Visual and structural concepts
+- Interaction and operating model
+- Signal-to-evidence map
+- Focused evidence reopen rule
+- Prototype proof, output, and pass criteria
+
 ## Purpose
 
-Use this gate when the product form, interface, or operating model could be wrong even if the user's first noun sounds clear.
+Run this gate after the Opportunity & Evidence Gate has produced an approved direction or an explicitly accepted uncertainty.
 
-The gate is not a documentation step. It is an adversarial clarification step before implementation framing hardens.
+Turn the chosen operating model into visual or structural concepts, an interaction and operating flow, behavioral-contract implications, and a concrete prototype pass. Challenge how the direction works without repeating the earlier opportunity research.
+
+## Approved Inputs
+
+Begin by restating:
+
+- selected user, job, outcome, and first wedge
+- chosen operating model and rejected alternatives
+- evidence supporting the direction
+- source, access, trust, and privacy constraints
+- research-sample limitations
+- focused evidence gaps accepted or deferred
+
+If these inputs do not exist, return to `opportunity-evidence-gate.md`. Do not invent product strategy to fill the gap.
 
 ## Core Behavior
 
-Treat the user's first product noun as a hypothesis, not a requirement.
+Treat the approved operating model as a direction to test, not a finished interface.
 
-If the user asks for a dashboard, app, assistant, tracker, report, monitor, workflow, or tool, challenge what job that surface is meant to do.
+Ask what decision, inference, comparison, review, or action each surface should make easier. Preserve the approved wedge unless user critique or focused new evidence justifies a Decision Ledger update.
 
-Do not ask, "Do you want a dashboard?" Ask what decision, inference, comparison, review, or action the product should make easier.
+Do not ask only, "Do you want a dashboard?" Ask what the user should understand or do, what evidence they need, and what would make the concept misleading.
 
-## Strategy And Design Questions
+## Visual And Structural Concepts
 
-Before choosing a surface, clarify:
+For visual, dashboard, analytics, monitoring, workflow, AI-output, or interaction-heavy products, create or request 2-3 competing concepts unless the user explicitly skips the gate.
 
-- which user and trigger situation should be served first
-- which outcome creates first-session value
-- why this wedge should exist instead of expanding the current workaround
-- what is intentionally excluded from the first version
-- which operating model and artifact make the chosen job understandable and actionable
+Each concept must test a different interaction model, information hierarchy, or division of human and system responsibility within the approved direction. Do not vary only color or styling.
 
-Do not turn this into a separate strategy phase. Use the answers to challenge the product form and MVP.
-
-## Required Reframing
-
-Generate 3-5 possible operating models when the product shape is ambiguous.
-
-Examples:
-
-- dashboard
-- monitor
-- anomaly detector
-- triage queue
-- investigation console
-- command center
-- alerting surface
-- report
-- decision-support surface
-- workflow tool
-- search or exploration interface
-- evidence review tool
-
-For each plausible model, identify:
+For each concept, identify:
 
 - primary object of attention
-- primary user inference
-- first signal that makes the user care
+- primary user inference or decision
+- first signal that creates relevance
 - evidence needed to trust the signal
-- what the user does next, if anything
-- what would make the interface misleading
-- whether the model satisfies the behavioral contract
+- main action and next state
+- review, edit, approval, undo, or override controls
+- what would make the concept misleading
+- what is immediately clear, confusing, crowded, missing, or removable
+- behavioral-contract implications
 
-## Cross-Questioning
+Useful challenge questions:
 
-Ask one or two sharp questions at a time. Prefer questions that challenge the frame.
-
-Useful questions:
-
-- "What should the user infer from this screen in 10 seconds?"
+- "What should the user infer from this in 10 seconds?"
 - "What would the user do differently after seeing it?"
-- "What would make this screen useless or misleading?"
-- "Is the main object a user, event, anomaly, task, entity, trend, or piece of evidence?"
-- "Is this for monitoring, diagnosis, comparison, prioritization, review, or action?"
-- "If the main number is high, what should explain why?"
-- "What evidence would make the user trust the signal?"
-- "What time context matters: item age, user/account age, incident duration, trend duration, or current-window activity?"
-- "Which labels or scores are unclear without definitions?"
-- "What can be removed because the visual already communicates it?"
+- "What evidence would make the signal trustworthy?"
+- "What is the main object: user, event, anomaly, task, entity, trend, or evidence?"
+- "What time context matters?"
+- "Which score, label, threshold, or state is unclear without a definition?"
+- "Where must the user be able to inspect, correct, or stop the system?"
 
-## Market And Pattern Scan
+## Interaction And Operating Model
 
-When the product form is ambiguous, high-stakes, or common-sounding, perform a lightweight market/pattern scan before settling the model.
+For the leading concept, define:
 
-Use current public sources when product patterns, platform constraints, or competitor behavior may have changed. Prefer official product pages, public docs, credible case studies, and mature comparable tools.
+- entry trigger and preconditions
+- first screen, artifact, or moment
+- main entities and hierarchy
+- key steps and visible intermediate states
+- user and system responsibilities
+- review or approval points
+- completion state
+- failure, fallback, and return/reuse paths
+- real, mocked, manual, and deferred boundaries
 
-Look for:
-
-- vocabulary used by mature products
-- workflow patterns
-- alerting, triage, monitoring, or investigation models
-- metric semantics and threshold language
-- evidence and drilldown patterns
-- escalation or review patterns
-- what users are expected to infer
-
-Then report what changed in the product framing. Do not copy competitor features blindly.
-
-## Visual Concept Requirement
-
-For visual, dashboard, analytics, monitoring, workflow, AI-output, or interaction-heavy products, create or request 2-3 competing visual or structural concepts before approving the product direction unless the user explicitly skips this gate.
-
-Each concept should test a different operating model or information hierarchy, not merely a different color treatment.
-
-For each concept, ask:
-
-- what is immediately clear
-- what is confusing
-- what metric lacks meaning
-- what drilldown or evidence is missing
-- what entity hierarchy is hidden
-- what time context is missing
-- what should be removed
+Use this to draft the Behavioral Contract before approving the prototype proof.
 
 ## Signal-To-Evidence Map
 
-Before the gate passes, define the path from signal to evidence:
+For analytics, monitoring, AI, workflow, or decision-support products, define:
 
 ```text
 signal
@@ -118,48 +93,74 @@ signal
 -> optional next action
 ```
 
-For analytics and monitoring products, also define:
+Also define when applicable:
 
 - baseline or comparison source
 - current-window signal
-- historical/context signal
+- historical or contextual signal
 - driver attribution
 - evidence examples
 - confidence or uncertainty language
 
+## Focused Evidence Reopen Rule
+
+Review the approved Opportunity & Evidence Gate record; do not rerun its broad source inventory or comparable-product scan.
+
+Reopen research only when a visual concept or prototype exposes a concrete evidence gap, such as an unavailable field, unreliable label, missing workflow permission, unsupported user inference, or unclear trust boundary.
+
+For a focused spike, record:
+
+- design decision blocked
+- precise evidence needed
+- smallest permitted source or sample
+- access, cost, privacy, and stop limits
+- what result would change the concept
+
+Update the existing Opportunity & Evidence section and Decision Ledger with the result. Do not create a second research report.
+
+## Prototype Proof
+
+Use the smallest useful proof that can test the concept and Behavioral Contract. It may combine visualizations with one concrete operating walkthrough.
+
+Connect the proof to:
+
+- real data that is permitted and proportionate, or
+- an explicitly mocked, synthetic, or anonymized build fixture
+
+Do not silently reuse a messy or license-limited research sample as the build fixture. Label every data boundary and state what the proof supports and does not support.
+
 ## Output
 
-Record Product Design Gate decisions inside `prototype-pass.md` and carry the chosen model into `project-brief.md` and `build-brief.md`.
-
-Do not create a separate artifact by default unless the gate was substantial enough that a standalone design decision report would prevent confusion.
+Record Product Design Gate decisions inside `prototype-pass.md` and carry the approved operating model into `project-brief.md` and `build-brief.md`.
 
 Required recorded decisions:
 
-1. challenged initial noun
-2. alternative operating models considered
-3. chosen operating model
-4. primary user inference
-5. main object of attention
-6. signal-to-evidence path
-7. entity hierarchy
-8. time-context requirements
-9. metric or label definitions
-10. misinterpretation risks
-11. visual concepts tested
-12. user critique and resulting changes
-13. first user/job/outcome and strategic wedge
-14. behavioral contract implications
+1. approved opportunity direction and evidence constraints consumed
+2. visual or structural concepts considered
+3. chosen concept and interaction/operating model
+4. primary user inference and main object of attention
+5. signal-to-evidence path
+6. entity hierarchy and time context
+7. metric or label definitions
+8. misinterpretation risks and user controls
+9. user critique and resulting changes
+10. behavioral-contract implications
+11. concrete walkthrough and data/fixture boundary
+12. focused research reopened, if any, and the decision it resolved
 
 ## Pass Criteria
 
-Pass the gate only when:
+Pass only when:
 
-- the primary user inference is clear
-- the main object of attention is clear
-- the signal-to-evidence path is clear
-- important time/context assumptions are clear
-- confusing metrics or labels have been renamed, defined, or removed
+- the selected concept preserves or explicitly updates the approved first user/job/outcome and wedge
+- the primary user inference and main object of attention are clear
+- the interaction and operating flow are clear
+- the signal-to-evidence path is clear when applicable
+- important time, context, metric, label, and user-control assumptions are clear
 - the user has reacted to competing concepts when the product is visual or interaction-heavy
-- the chosen operating model is reflected in the starter artifacts
+- the Behavioral Contract covers trigger, preconditions, input, state, output, controls, fallback, and must-not-happen behavior
+- a concrete walkthrough uses real or explicitly mocked/fixture data
+- any reopened research was focused on a newly exposed evidence gap
+- the chosen concept is reflected in the starter artifacts
 
 If these are not true, continue product design discovery or rerun the prototype pass before Spec Kit handoff.

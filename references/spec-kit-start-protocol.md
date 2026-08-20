@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Use this protocol after Project Starter Kit has completed discovery, prototype challenge, and build brief generation.
+Use this protocol after Project Starter Kit has completed the Opportunity & Evidence Gate, Product Design Gate, Behavioral Contract, prototype challenge, and build brief generation.
 
 This protocol prepares the current project folder for Spec Kit and eventual implementation.
 
@@ -19,7 +19,7 @@ In this workflow:
 
 ```text
 Project Starter Kit
--> product discovery, Product Design Gate, prototype challenge, project brief, build brief
+-> Opportunity & Evidence Gate, Product Design Gate, Behavioral Contract, prototype challenge, project brief, build brief
 
 Spec Kit
 -> specification, technical plan, tasks, implementation, analysis
@@ -51,13 +51,13 @@ If any are missing, stop and return to Project Starter Kit discovery or artifact
 
 Use the local Project Starter Kit artifacts as the source of truth:
 
-- `project-brief.md` defines product direction, user, promise, MVP boundary, and non-goals.
-- `prototype-pass.md` defines Product Design Gate decisions, operating-model choices, feasibility findings, and product decisions changed by prototype/walkthrough work.
-- `build-brief.md` defines the implementation handoff.
+- `project-brief.md` defines the Opportunity & Evidence decision, product direction, user, promise, MVP boundary, and non-goals.
+- `prototype-pass.md` defines how Product Design consumed the approved direction, any focused evidence findings, the Behavioral Contract, fixture boundary, and decisions changed by prototype/walkthrough work.
+- `build-brief.md` defines the implementation handoff, approved source constraints, and stable build-fixture requirements.
 
 Do not restart product discovery unless the files are contradictory, incomplete, or impossible to implement.
 
-Do not let Spec Kit, review frameworks, or implementation convenience change the approved product name, MVP scope, product promise, or core UX direction without asking the user.
+Do not let Spec Kit, review frameworks, or implementation convenience change the approved opportunity direction, product name, MVP scope, product promise, evidence boundaries, or core UX direction without asking the user.
 
 ## User Confirmation
 
@@ -197,7 +197,7 @@ After Spec Kit artifacts exist, make their locations clear in project status upd
 Future agents should be told to read:
 
 - `project-index.md` first when present
-- the starter artifacts: `project-brief.md`, `prototype-pass.md`, and `build-brief.md`, especially Product Design Gate decisions inside `prototype-pass.md`
+- the starter artifacts: `project-brief.md`, `prototype-pass.md`, and `build-brief.md`, especially the Opportunity & Evidence decision in `project-brief.md` and Product Design/Behavioral Contract decisions inside `prototype-pass.md`
 - the active Spec Kit `spec.md`
 - the active Spec Kit `plan.md`
 - the active Spec Kit `tasks.md`

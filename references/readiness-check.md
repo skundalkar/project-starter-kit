@@ -6,6 +6,10 @@ The goal is not perfection. The goal is enough clarity that the first product br
 
 ## Required
 
+- Opportunity & Evidence Gate outcome: proceed, targeted research spike, narrow/reframe, or stop/defer
+- Evidence-grounded operating-model direction and explicit user decision
+- Public, paid/licensed, internal, and missing source classes considered
+- Material source access, permission, cost, provenance, freshness, coverage, shape, quality/uncertainty, and privacy/trust limits
 - Working product name or clear placeholder
 - Product category
 - Primary user
@@ -29,6 +33,8 @@ The goal is not perfection. The goal is enough clarity that the first product br
 - Main data entities or information the product must remember
 - Places where the user needs review, edit, approval, undo, or override
 - AI, data, platform, or integration assumptions
+- Small, traceable research sample profile when it materially reduces feasibility uncertainty, or the reason none was appropriate
+- Clear separation between the feasibility research sample and the stable, preferably anonymized build fixture used for proof and validation
 - Operating flow and execution-boundary questions that the prototype must resolve
 - Feasibility risks to challenge before implementation
 - Product Design Gate decisions, visual concepts, or operating-model alternatives needed for approval
@@ -42,6 +48,8 @@ The goal is not perfection. The goal is enough clarity that the first product br
 When ready, summarize:
 
 - Name
+- Opportunity & Evidence Gate outcome
+- Evidence basis, limits, and user decision
 - User
 - Situation
 - Promise
@@ -52,6 +60,7 @@ When ready, summarize:
 - Key outputs
 - Exclusions
 - Feasibility risks
+- Research-sample status and build-fixture need
 - Visual or workflow artifacts needed before build
 - Triggered tools or review lenses needed, if any
 - Specialist review needed, if any

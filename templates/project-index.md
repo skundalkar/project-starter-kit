@@ -9,6 +9,8 @@ One sentence describing the user, job, and approved MVP outcome.
 ## Level 2: Essential Facts
 
 - User and trigger:
+- Opportunity & Evidence Gate outcome:
+- Evidence basis and material limits:
 - MVP loop:
 - Approved operating model:
 - Key execution boundary:

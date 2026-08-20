@@ -20,7 +20,7 @@ Use this file as the implementation handoff after reading `project-brief.md` and
 
 The product direction and MVP boundary come from `project-brief.md`.
 
-The feasibility decisions, Product Design Gate decisions, and prototype learnings come from `prototype-pass.md`.
+The approved Opportunity & Evidence direction comes from `project-brief.md`. The Product Design Gate decisions, focused evidence findings, Behavioral Contract, and prototype learnings come from `prototype-pass.md`.
 
 Do not change the approved product name, promise, MVP boundary, or core UX direction without asking the user.
 
@@ -76,7 +76,17 @@ Build in this order unless there is a clear technical reason to adjust:
 
 ## Product Operating Model
 
-State the approved operating model and the initial framing it replaced or refined.
+State the operating model approved by the Opportunity & Evidence Gate and the visual/interaction concept selected by Product Design.
+
+## Approved Evidence And Source Constraints
+
+- Gate outcome and approved first wedge:
+- Permitted public, paid/licensed, and internal sources:
+- Missing sources or unsupported claims:
+- Access, license/permission, cost, provenance, freshness, and coverage constraints:
+- Structural shape/entities/fields available:
+- Quality, uncertainty, privacy, and trust limits:
+- Focused research spike still open, if any:
 
 ## User Flow
 
@@ -106,6 +116,8 @@ List the concrete outputs the implemented product must create, show, save, compa
 ## Data Model Direction
 
 List the core entities, fields, relationships, persistence needs, and generated outputs.
+
+Keep feasibility research samples separate from stable build fixtures. Do not use licensed, sensitive, or messy sample data in mocks or tests unless permission, privacy treatment, stability, and representativeness are explicit.
 
 ## AI, Automation, Or Integration Direction
 
@@ -163,6 +175,10 @@ Use only applicable surfaces: behavioral semantics, temporal/order, data/source 
 
 - Input:
 - Sample data:
+- Provenance: Real / mocked / synthetic / anonymized
+- Version and stable location:
+- Permission and privacy treatment:
+- Difference from the Opportunity & Evidence research sample:
 - Expected output:
 - Required explanation:
 - Required caution or edge behavior:

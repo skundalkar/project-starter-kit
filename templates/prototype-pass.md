@@ -8,30 +8,50 @@
 
 ## Purpose
 
-This artifact records the concrete example walkthrough and Product Design Gate decisions used to challenge the product before formal implementation planning.
+This artifact records how Product Design consumed the approved Opportunity & Evidence direction, the Behavioral Contract, and the concrete example walkthrough used to challenge the product before formal implementation planning.
+
+## Opportunity & Evidence Gate Inputs
+
+- Approved user/job/outcome and first wedge:
+- Chosen operating model and evidence basis:
+- Rejected alternatives and why:
+- Approved source, access, license, cost, privacy, and trust constraints:
+- Research-sample limitations:
+- Accepted or deferred evidence gaps:
+
+### Research Sample Record
+
+- Source and retrieval date:
+- Access/use terms and sampling method:
+- Entities, fields, relationships, identifiers, granularity, and formats:
+- Freshness, coverage, missingness, quality, bias, and uncertainty:
+- What the sample supports:
+- What it does not support:
+
+The research sample decides feasibility or direction. It is not automatically a build fixture.
 
 ## Product Design Gate
 
-### Strategy Check
+### Approved Strategy Check
 
 - First user/job/outcome:
 - Strategic wedge:
 - First-session value:
 - Intentional non-goals:
 
-### Initial Product Noun Or Framing
+### Approved Operating-Model Direction
 
-Describe the user's starting noun or framing, such as dashboard, monitor, assistant, tracker, report, app, or workflow.
+Describe the operating model chosen by the Opportunity & Evidence Gate and the initial noun or framing it replaced.
 
-### Alternative Operating Models Considered
+### Visual Or Structural Concepts Considered
 
-List competing product models considered before selecting the direction.
+List 2-3 competing interaction models or information hierarchies tested within the approved direction.
 
 -
 
-### Chosen Operating Model
+### Chosen Concept And Interaction Model
 
-Name the selected model and why it fits the user's job.
+Name the selected concept, interaction/operating flow, and why it fits the user's job.
 
 ### Primary User Inference
 
@@ -61,18 +81,14 @@ Define important scores, labels, categories, thresholds, or statuses. Remove or 
 
 List what the user could wrongly infer and how the product should prevent that.
 
-### Market Or Pattern Scan
+### Focused Evidence Reopened During Design
 
-Summarize any outside product patterns, public research, comparable tools, or vocabulary that changed the direction.
-
-### Competitive / Comparable Products Lens
-
-- Comparable products:
-- Comparison dimensions:
-- What to borrow:
-- What to avoid:
-- Differentiation implication:
-- Feature decisions changed:
+- Concrete design decision blocked:
+- Newly exposed evidence gap:
+- Smallest permitted source or sample used:
+- Access, cost, privacy, and stop limits:
+- Finding and concept decision changed:
+- Opportunity & Evidence section and Decision Ledger updated:
 
 ### Concepts Tested And User Critique
 
@@ -127,7 +143,16 @@ List the assumptions being tested before the walkthrough.
 
 ## Prototype Or Walkthrough Output
 
-Describe or link to the sketch, diagram, sample output, mockup, image, or manual walkthrough result.
+Describe or link to the visualization, sketch, diagram, sample output, mockup, image, and concrete operating walkthrough result.
+
+## Proof Data Boundary
+
+- Real data used with permission:
+- Explicitly mocked, synthetic, or anonymized build fixture:
+- Fixture version/schema and stable location:
+- Expected outcomes and edge states:
+- How this fixture differs from the research sample:
+- What the proof supports and does not support:
 
 ## What Worked
 
