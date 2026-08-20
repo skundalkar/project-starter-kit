@@ -12,6 +12,38 @@ Use the strongest available source for each claim:
 
 Lower-ranked sources can explain intent but cannot override observed behavior. Record contradictions and the evidence cutoff.
 
+## Schema-assisted discovery
+
+Use project data models to recover exact vocabulary before interpretation. Run `scripts/discover_schema_candidates.py` as a broad, read-only first pass for TypeScript/JavaScript literal unions, enums, and `z.enum`; Python `Enum` and `Literal`; and JSON Schema `enum`. Treat its output as an inventory to audit, not as canonical facts.
+
+Promote a candidate into `declarations` only after opening its source. Preserve:
+
+- exact `source_name` and declaring `symbol`;
+- `declaration_kind`: `state_value`, `event_type`, `artifact_type`, `record_type`, `identifier_field`, `transition_rule`, `storage_binding`, `participant_type`, or `other`;
+- `claim_scope`: `declared_vocabulary`, `allowed_structure`, `implemented_behavior`, or `observed_occurrence`;
+- evidence and the canonical records that use it.
+
+A declaration proves that a name or structure exists in the inspected revision. It does not prove runtime occurrence. A handler plus test may support implemented behavior; only a trace, database row, queue record, transcript, or other persisted runtime record supports observed occurrence.
+
+Link entities, artifacts, sessions, and events to declarations with optional `declaration_ids`. Keep `label` human-readable and `source_name` exact. This prevents display copy from becoming an accidental API contract and lets coverage checks find declared states or events missing from the model.
+
+### Grammar-bearing semantic axes
+
+The normalized model must retain the signals needed to draw without project-specific rules:
+
+| Axis | Canonical signal | Visual consequence |
+|---|---|---|
+| topology | entity kind, group, inside/outside boundary | containers, placement, subsystem blocks |
+| lifecycle | state semantic role, transition class, terminal kind | state shapes, legal transition arrows, terminal capsules |
+| agency | actor plus human/system/external role | participant lanes and event marks |
+| provenance | artifact form, persistence, production/input class | artifact rows, document/store shapes, formal handoffs |
+| control | decision/control/route class | gates, diamonds, labeled branches |
+| time | event order or evidenced start/end | sequence order or duration-scaled visits |
+| continuity | session IDs, persisted state, queue/task/handoff/context class | continuity lanes and cross-step links |
+| certainty | verification plus claim scope | solid/dashed treatment and explicit badges |
+
+Renderers consume these axes and canonical IDs. They must not branch on names such as `review_ready`, `plan-critique`, a framework name, or a filename. A project-specific adapter may extract names into declarations; it may not select visual grammar from those names without an audited semantic mapping.
+
 ## Entity kinds
 
 - `actor`: human or system authority that initiates or approves work

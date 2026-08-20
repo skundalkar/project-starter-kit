@@ -16,10 +16,10 @@ Use `assets/canonical-model.template.json` for machine-checkable work. Read `ref
 ## Workflow
 
 1. Establish scope, audience, decision, system boundary, and evidence cutoff.
-2. Inspect authoritative code, contracts, tests, schemas, runtime traces, and current docs. Record conflicts and unknowns; do not silently resolve them.
-3. Inventory entities: subsystems, actors, states or visits, triggers, decisions, artifacts, data stores, external systems, human events, system events, and terminal outcomes.
+2. Inspect authoritative code, contracts, tests, schemas, runtime traces, and current docs. Record conflicts and unknowns; do not silently resolve them. When the project exposes typed models or schemas, run `python3 scripts/discover_schema_candidates.py <project-root> <candidates.json>` and audit its candidate inventory against the source.
+3. Inventory entities: subsystems, actors, states or visits, triggers, decisions, artifacts, data stores, external systems, human events, system events, and terminal outcomes. Promote useful schema candidates into `declarations`, then link canonical records with `declaration_ids`; preserve the exact source name separately from the human-facing label.
 4. Register every relationship with a class, verification status, evidence citation, and plain-language meaning. Treat chronology and causality as separate claims.
-5. Mark each statement `observed`, `inferred`, or `unknown`. Formal artifact-flow edges require observed evidence that the target actually consumes the named artifact.
+5. Mark each statement `observed`, `inferred`, or `unknown`. For schema-derived declarations, also classify claim scope: a schema may prove `declared_vocabulary` or `allowed_structure`; code/tests may prove `implemented_behavior`; only a trace or persisted run record proves `observed_occurrence`. Formal artifact-flow edges require observed evidence that the target actually consumes the named artifact.
 6. Normalize repository-specific evidence into the stable schema. Do not teach the renderer project vocabulary. For run/session views, populate the renderer-complete `projection` contract described in the reference; use `python3 scripts/build_dashboard_projection.py <model.json> <output.json>` as a deterministic starting point, then audit every generated handoff.
 7. Validate the model with `python3 scripts/validate_model.py <model.json>`. Validation must fail when a dashboard lacks lanes/visits, references missing records, or presents an unobserved relationship as formal. For a compact standalone explainer, run `python3 scripts/render_model.py <model.json> <output.html>`.
 8. Select only the views that answer the user's questions. Treat each as a first-class diagram grammar, not the same node grid with a different filter:
@@ -46,6 +46,8 @@ Use `assets/canonical-model.template.json` for machine-checkable work. Read `ref
 - Keep diagrams compact. Prefer multiple focused views over one universal graph.
 - Do not reduce a richly evidenced run to cards. For GraphRun-like ledgers—or any system with timed visits, durable artifacts, and event records—make the session dashboard a first-class view beside architecture, sequence, and lifecycle. Provide run selection and timeline/artifact focus controls when they materially help.
 - Treat `projection` as a lossless visual index over canonical IDs, not a second narrative model. It may choose lane order, artifact rows, and anchors; it must not introduce facts, rename uncertainty into certainty, or contain an edge that is absent from the classified evidence register.
+- Derive visual grammar from normalized semantics, never identifier spelling: entity kind and semantic role choose shapes/lanes; relationship class chooses line grammar; actor/boundary role chooses placement; artifact form/persistence chooses provenance rows; event order/time chooses sequence or duration; verification and claim scope choose certainty treatment. Project names remain labels and inspector evidence.
+- Treat automated schema discovery as candidate generation, not truth promotion. It improves exact naming, completeness, and drift detection but does not prove that a state occurred, an event fired, an artifact persisted, or one component consumed another's output.
 
 ## Output contract
 
@@ -55,5 +57,7 @@ Deliver:
 - the smallest useful visual artifact containing an architecture view plus at least one lifecycle/state, provenance, or decision/control view;
 - a short decision-first explanation of each view and its limits;
 - validation evidence, including unresolved model warnings.
+
+When schemas are available, also deliver a brief coverage statement: which declared states/events/artifacts were mapped, intentionally omitted, or left unresolved. Do not force unused declarations into diagrams.
 
 For an implementation-grounded artifact, cite repository-relative paths and symbols or line ranges when stable. Do not claim runtime behavior from a proposal document alone. Do not imply a single execution order from unordered architecture evidence.

@@ -11,11 +11,28 @@
   "evidence_sources": [
     {"id": "E1", "path": "path/to/source", "kind": "code", "note": "What this proves"}
   ],
+  "declarations": [
+    {
+      "id": "decl-state-ready",
+      "label": "Ready",
+      "source_name": "ready",
+      "symbol": "LifecycleStatus",
+      "source_path": "path/to/contracts.ts",
+      "declaration_kind": "state_value",
+      "claim_scope": "declared_vocabulary",
+      "verification": "observed",
+      "evidence": ["E1"],
+      "note": "The schema declares this exact value; runtime occurrence is not established here."
+    }
+  ],
   "entities": [
     {
       "id": "component-a",
       "label": "Component A",
       "kind": "subsystem",
+      "semantic_role": "processing_component",
+      "source_names": ["ExactSourceSymbol"],
+      "declaration_ids": [],
       "verification": "observed",
       "responsibility": "What it owns",
       "start_reason": "What activates or enters it",
@@ -31,6 +48,9 @@
       "id": "component-b",
       "label": "Component B",
       "kind": "subsystem",
+      "semantic_role": "processing_component",
+      "source_names": ["ExactSourceSymbolB"],
+      "declaration_ids": [],
       "verification": "observed",
       "responsibility": "What it owns",
       "start_reason": "Receives a named formal input",
@@ -63,6 +83,7 @@
       "form": "file | folder | database_entity | api_payload | queue_record | state_field | in_memory | conceptual",
       "location": "Exact name/path/pattern, or Conceptual — exact location not evidenced",
       "persistence": "How long and where it survives",
+      "declaration_ids": [],
       "verification": "observed",
       "evidence": ["E1"],
       "uncertainty": "None"
@@ -92,6 +113,7 @@
       "end": "Observed timestamp or not recorded",
       "source": "Transcript or visit record path",
       "detail": "Responsibility and outcome",
+      "declaration_ids": [],
       "verification": "observed",
       "evidence": ["E1"]
     }
@@ -103,6 +125,9 @@
       "order": 1,
       "label": "Named event or visit",
       "event_type": "human | system | visit | decision | artifact | external_boundary | terminal",
+      "semantic_role": "normalized role used for lane/shape selection",
+      "source_name": "Exact event/type name when declared",
+      "declaration_ids": [],
       "session_id": "session-1",
       "actor": "Who or what acts",
       "state_before": "Known state or not recorded",
@@ -122,5 +147,11 @@
     {"id": "run", "type": "run_dashboard", "question": "When did each evidenced visit occur, what did it consume, and what crossed to the next visit?", "meaning": "Timed visit lanes, separate artifact rows, classified handoffs, explicit system/human events, and terminal state.", "takeaway": "Use only when visit start/end evidence exists; otherwise use ordinal_recipe and label the view as a recipe.", "entities": [], "relationships": [], "run_id": "run-1", "sessions": ["session-1"], "events": ["event-1"], "artifact_records": ["artifact-1"], "projection": {"time_mode":"ordinal_recipe","lanes":[{"id":"phase","label":"Phase","kind":"state","order":1}],"visits":[{"id":"visit-1","record_type":"session","record_id":"session-1","lane_id":"phase","label":"Visit 1","order":1}],"artifact_rows":[{"id":"outputs","label":"Outputs","order":1}],"artifacts":[{"artifact_id":"artifact-1","row_id":"outputs","anchor_visit_id":"visit-1","anchor":"end","order":1}],"handoffs":[],"event_marks":[],"terminals":[{"id":"terminal-1","from_visit_id":"visit-1","label":"Named outcome","class":"terminal_transition","verification":"observed","evidence":["E1"]}]}},
     {"id": "continuity", "type": "continuity", "question": "What context survives, and is compaction explicitly evidenced?", "entities": [], "relationships": [], "run_id": "run-1", "sessions": ["session-1"], "events": ["event-1"], "artifact_records": ["artifact-1"]}
   ],
+  "declaration_coverage": {
+    "mapped": ["decl-state-ready"],
+    "intentionally_omitted": [],
+    "unresolved": [],
+    "note": "Coverage is about declared vocabulary, not observed runtime occurrence."
+  },
   "uncertainties": ["Explicit unknown or conflict"]
 }

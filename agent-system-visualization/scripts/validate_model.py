@@ -21,6 +21,11 @@ RELATIONSHIP_CLASSES = {
 NON_FORMAL_CLASSES = {"continuity_context", "explanatory_association"}
 VIEW_TYPES = {"architecture", "sequence", "state", "lifecycle", "provenance", "decision_control", "run_walkthrough", "run_dashboard", "continuity"}
 VERIFICATION = {"observed", "inferred", "unknown"}
+DECLARATION_KINDS = {
+    "state_value", "event_type", "artifact_type", "record_type", "identifier_field",
+    "transition_rule", "storage_binding", "participant_type", "other",
+}
+CLAIM_SCOPES = {"declared_vocabulary", "allowed_structure", "implemented_behavior", "observed_occurrence"}
 
 
 def require(condition: bool, message: str, errors: list[str]) -> None:
@@ -36,6 +41,20 @@ def validate(model: dict) -> list[str]:
     evidence_ids = {item.get("id") for item in model.get("evidence_sources", [])}
     require(None not in evidence_ids, "every evidence source needs an id", errors)
 
+    declaration_ids: list[str | None] = []
+    for declaration in model.get("declarations", []):
+        declaration_id = declaration.get("id", "<missing>")
+        declaration_ids.append(declaration.get("id"))
+        for field in ("label", "source_name", "symbol", "source_path", "declaration_kind", "claim_scope", "verification", "evidence", "note"):
+            require(field in declaration, f"declaration {declaration_id}: missing {field}", errors)
+        require(declaration.get("declaration_kind") in DECLARATION_KINDS, f"declaration {declaration_id}: invalid declaration_kind", errors)
+        require(declaration.get("claim_scope") in CLAIM_SCOPES, f"declaration {declaration_id}: invalid claim_scope", errors)
+        require(declaration.get("verification") in VERIFICATION, f"declaration {declaration_id}: invalid verification", errors)
+        for evidence_id in declaration.get("evidence", []):
+            require(evidence_id in evidence_ids, f"declaration {declaration_id}: unknown evidence {evidence_id}", errors)
+    require(None not in declaration_ids, "every declaration needs an id", errors)
+    require(len(declaration_ids) == len(set(declaration_ids)), "declaration ids must be unique", errors)
+
     entities = model.get("entities", [])
     entity_ids = [item.get("id") for item in entities]
     require(None not in entity_ids, "every entity needs an id", errors)
@@ -49,6 +68,8 @@ def validate(model: dict) -> list[str]:
             require(field in entity, f"entity {entity_id}: missing {field}", errors)
         for evidence_id in entity.get("evidence", []):
             require(evidence_id in evidence_ids, f"entity {entity_id}: unknown evidence {evidence_id}", errors)
+        for declaration_id in entity.get("declaration_ids", []):
+            require(declaration_id in declaration_ids, f"entity {entity_id}: unknown declaration {declaration_id}", errors)
 
     relationship_ids: list[str | None] = []
     for rel in model.get("relationships", []):
@@ -81,6 +102,8 @@ def validate(model: dict) -> list[str]:
         require(artifact.get("verification") in VERIFICATION, f"artifact {artifact_id}: invalid verification", errors)
         for evidence_id in artifact.get("evidence", []):
             require(evidence_id in evidence_ids, f"artifact {artifact_id}: unknown evidence {evidence_id}", errors)
+        for declaration_id in artifact.get("declaration_ids", []):
+            require(declaration_id in declaration_ids, f"artifact {artifact_id}: unknown declaration {declaration_id}", errors)
     require(None not in artifact_ids, "every artifact record needs an id", errors)
     require(len(artifact_ids) == len(set(artifact_ids)), "artifact record ids must be unique", errors)
 
@@ -97,6 +120,8 @@ def validate(model: dict) -> list[str]:
             require(field in session, f"session {session_id}: missing {field}", errors)
         for evidence_id in session.get("evidence", []):
             require(evidence_id in evidence_ids, f"session {session_id}: unknown evidence {evidence_id}", errors)
+        for declaration_id in session.get("declaration_ids", []):
+            require(declaration_id in declaration_ids, f"session {session_id}: unknown declaration {declaration_id}", errors)
     require(None not in session_ids, "every session needs an id", errors)
     require(len(session_ids) == len(set(session_ids)), "session ids must be unique", errors)
     event_ids: list[str | None] = []
@@ -116,6 +141,8 @@ def validate(model: dict) -> list[str]:
             require(rel_id in relationship_ids, f"event {event_id}: unknown relationship {rel_id}", errors)
         for evidence_id in event.get("evidence", []):
             require(evidence_id in evidence_ids, f"event {event_id}: unknown evidence {evidence_id}", errors)
+        for declaration_id in event.get("declaration_ids", []):
+            require(declaration_id in declaration_ids, f"event {event_id}: unknown declaration {declaration_id}", errors)
     require(None not in event_ids, "every event needs an id", errors)
     require(len(event_ids) == len(set(event_ids)), "event ids must be unique", errors)
 
@@ -175,6 +202,19 @@ def validate(model: dict) -> list[str]:
                     require(mark.get("lane_id") in lane_ids, f"view {view_id}: event mark has unknown lane", errors)
                 for terminal in projection.get("terminals", []):
                     require(terminal.get("from_visit_id") in visit_ids, f"view {view_id}: terminal {terminal.get('id')} has unknown source visit", errors)
+
+    coverage = model.get("declaration_coverage")
+    if coverage is not None:
+        require(isinstance(coverage, dict), "declaration_coverage must be an object", errors)
+        if isinstance(coverage, dict):
+            covered: list[str] = []
+            for bucket in ("mapped", "intentionally_omitted", "unresolved"):
+                require(isinstance(coverage.get(bucket), list), f"declaration_coverage.{bucket} must be a list", errors)
+                for declaration_id in coverage.get(bucket, []):
+                    require(declaration_id in declaration_ids, f"declaration_coverage.{bucket}: unknown declaration {declaration_id}", errors)
+                    covered.append(declaration_id)
+            require(len(covered) == len(set(covered)), "a declaration may appear in only one coverage bucket", errors)
+            require(set(covered) == set(declaration_ids), "declaration_coverage must account for every declaration", errors)
 
     return errors
 
