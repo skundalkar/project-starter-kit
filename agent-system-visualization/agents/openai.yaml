@@ -1,0 +1,4 @@
+interface:
+  display_name: "Agent System Visualization"
+  short_description: "Map agent systems from verified relationships"
+  default_prompt: "Use $agent-system-visualization to model and explain this agentic system from its source artifacts."

@@ -1,0 +1,63 @@
+{
+  "version": "1.0",
+  "system": {
+    "name": "System name",
+    "boundary": "What is inside and outside the model",
+    "audience": "Primary reader",
+    "decision": "Decision this model should support",
+    "evidence_cutoff": "YYYY-MM-DD or revision"
+  },
+  "takeaway": "Decision-first statement of what the model shows",
+  "evidence_sources": [
+    {"id": "E1", "path": "path/to/source", "kind": "code", "note": "What this proves"}
+  ],
+  "entities": [
+    {
+      "id": "component-a",
+      "label": "Component A",
+      "kind": "subsystem",
+      "verification": "observed",
+      "responsibility": "What it owns",
+      "start_reason": "What activates or enters it",
+      "stop_reason": "What ends or exits it",
+      "inputs": ["Named formal input or none evidenced"],
+      "outputs": ["Named output or none evidenced"],
+      "decision": "Decision/control or none evidenced",
+      "handoff": "Meaningful handoff or none evidenced",
+      "evidence": ["E1"],
+      "uncertainty": "Known gap or none"
+    },
+    {
+      "id": "component-b",
+      "label": "Component B",
+      "kind": "subsystem",
+      "verification": "observed",
+      "responsibility": "What it owns",
+      "start_reason": "Receives a named formal input",
+      "stop_reason": "Completes its responsibility",
+      "inputs": ["Named formal input"],
+      "outputs": ["None evidenced"],
+      "decision": "None evidenced",
+      "handoff": "None evidenced",
+      "evidence": ["E1"],
+      "uncertainty": "None"
+    }
+  ],
+  "relationships": [
+    {
+      "id": "rel-1",
+      "from": "component-a",
+      "to": "component-b",
+      "class": "formal_artifact_input",
+      "formal": true,
+      "verification": "observed",
+      "label": "Consumes named artifact",
+      "meaning": "What crosses and why",
+      "evidence": ["E1"]
+    }
+  ],
+  "views": [
+    {"id": "architecture", "type": "architecture", "question": "What exists and who owns what?", "entities": ["component-a", "component-b"], "relationships": ["rel-1"]}
+  ],
+  "uncertainties": ["Explicit unknown or conflict"]
+}
