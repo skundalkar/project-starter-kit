@@ -207,3 +207,4 @@ Before delivery, ask:
 7. Can a color-blind reader distinguish all important categories?
 8. Are architecture, sequence, and state views genuinely different diagrams rather than filters over one layout?
 9. Does every concrete artifact reference say whether it is persisted, in memory, a payload, or conceptual?
+10. Do artifact labels occupy collision-free tracks with connectors visually behind them?
